@@ -10,6 +10,7 @@
 	</style>
 
 <body>
+<button><a href="/solutionAdminPage/importCSV.do">IMPORT CSV</a></button>
 <form id="createGamingInstance" action="/solutionAdminPage/createCourse.do" method="POST">
 	<p>학년<input type="text" name="courseGrade" size="40px"></p>
 	<p>전공<input type="text" name="courseMajor" size="40px"></p>

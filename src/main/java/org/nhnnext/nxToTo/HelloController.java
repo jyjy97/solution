@@ -1,11 +1,5 @@
 package org.nhnnext.nxToTo;
 
-import org.nhnnext.nxToTo.Database.AccountDatabase;
-import org.nhnnext.nxToTo.Database.CourseDatabase;
-import org.nhnnext.nxToTo.Database.SurveyDatabase;
-import org.nhnnext.nxToTo.Instance.Account;
-import org.nhnnext.nxToTo.Instance.Course;
-import org.nhnnext.nxToTo.Instance.Survey;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,17 +8,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
- * Created By Alek
- * Date: 11/22/13
- * Project: NEXToTo
- * Package: org.nhnnext.nxToTo
- */
+* Created By Alek
+* Date: 11/22/13
+* Project: NEXToTo
+* Package: org.nhnnext.nxToTo
+*/
 
 @Controller
 @RequestMapping("/")
@@ -36,12 +29,12 @@ public class HelloController {
 	@Autowired
 	private SurveyDatabase surveyDatabase;
 
-	@RequestMapping()
+	@RequestMapping(value = "")
 	public String mainPage() {
 		return "hello";
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String loginAction(int identification, int grade, String major, String why, HttpSession httpSession) {
 		try {
 			Account targetAccount = accountDatabase.findBystudentNumber(identification);
@@ -57,7 +50,7 @@ public class HelloController {
 		}
 	}
 
-	@RequestMapping(value = "/enrollment")
+	@RequestMapping(value = "enrollment")
 	public String enrollmentPage(Model model, HttpSession httpSession) {
 		if (httpSession.getAttribute("identification")==null)
 			return "redirect:/";
@@ -85,7 +78,7 @@ public class HelloController {
 		}
 	}
 
-	@RequestMapping(value = "/submit", params = {"firstCourse", "secondCourse", "thirdCourse"})
+	@RequestMapping(value = "submit", params = {"firstCourse", "secondCourse", "thirdCourse"})
 	public @ResponseBody String submitPage(@RequestParam(value="firstCourse") String firstCourse,
 										   @RequestParam(value="secondCourse") String secondCourse,
 										   @RequestParam(value="thirdCourse") String thirdCourse,
