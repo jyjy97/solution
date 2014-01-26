@@ -73,6 +73,7 @@ public class AdminController {
 	@RequestMapping(value = "importCSV.do")
 	public String importCSVAction() throws IOException {
 		ArrayList<String[]> strings = CSVControl.reader();
+
 		for (String[] node : strings) {
 			Course course = new Course(node[6], node[4], node[7], node[8], node[9], node[2], Integer.parseInt(node[3]), node[1], node[0], Integer.parseInt(node[5]));
 			courseDatabase.save(course);

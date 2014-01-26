@@ -2,8 +2,10 @@ package org.nhnnext.nxToTo;
 
 import au.com.bytecode.opencsv.CSVReader;
 
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 /**
@@ -19,7 +21,7 @@ public class CSVControl {
 	}
 
 	public static ArrayList<String[]> reader() throws IOException {
-		CSVReader reader = new CSVReader(new FileReader("/work/list.csv"));
+		CSVReader reader = new CSVReader(new InputStreamReader(new FileInputStream("/work/list.csv"),"UTF8"));
 		String[] nextLine;
 		ArrayList<String[]> strings = new ArrayList<String[]>();
 
