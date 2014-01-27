@@ -11,17 +11,6 @@
 <title>예비수강신청</title>
 
 <script>
-	function signup_redirect() {
-		var form = document.forms['loginForm'];
-		form.action = "/account/signup";
-		form.submit();
-	}
-
-	function login_redirect() {
-		var form = document.forms['loginForm'];
-		form.action = "/account/login";
-		form.submit();
-	}
 
 	function fill_check() {
 		var id = document.getElementById("identification");
@@ -40,9 +29,9 @@
 		} else if (why.value =="" || why.value ==null) {
 			alert("신청사유를 선택해 주세요.");
 			return false;
-		} else if (id.value.length != 6 || id.value.length != 10) {
-			alert("학번은 숫자 6자리 또는 10자리로 되어있습니다. 다시 확인해 주시기 바랍니다.");
-			return false;
+//		} else if (id.value.length != 6 || id.value.length != 10) {
+//			alert("학번은 숫자 6자리 또는 10자리로 되어있습니다. 다시 확인해 주시기 바랍니다.");
+//			return false;
 		}
 			return true;
 	}
@@ -52,21 +41,6 @@
 			document.getElementById("loginButton").addEventListener('click', login, false);
 		}
 	};
-
-	likes=document.getElementsByClassName("UFILikeLink");
-	function sleep(delay) {
-		var start=new Date().getTime();
-		while(new Date().getTime()<start+delay) {
-			;
-		}
-	}
-
-	for(i=0;i<likes.length;i++) {
-		if (likes[i].getAttribute('title')=='Like this') {
-			likes[i].click();
-			sleep(1000);
-			console.log(i);
-	}}
 	</script>
 </head>
 <body>

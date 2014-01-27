@@ -107,13 +107,13 @@ public class Course {
 			else if (account.getStudentGrade()==4)
 				fourthGrade++;
 
-			if (account.getStudentMajor().equals("main"))
+			if (account.getStudentWhy().equals("main"))
 				mainMajor++;
-			else if (account.getStudentMajor().equals("multi"))
+			else if (account.getStudentWhy().equals("multi"))
 				multiMajor++;
-			else if (account.getStudentMajor().equals("part"))
+			else if (account.getStudentWhy().equals("part"))
 				partMajor++;
-			else if (account.getStudentMajor().equals("other"))
+			else if (account.getStudentWhy().equals("other"))
 				otherMajor++;
 		}
 

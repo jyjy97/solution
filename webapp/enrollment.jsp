@@ -142,7 +142,7 @@
 
 	<div id="korean" style="display: none;">
 	<p>국어국문학과</p>
-	<table>
+	<table class="courseList">
 		<tr>
 			<td>학년</td>
 			<td>종별</td>
@@ -174,7 +174,7 @@
 
 	<div id="business" style="display: none;">
 		<p>경영학과</p>
-		<table>
+		<table class="courseList">
 			<tr>
 				<td>학년</td>
 				<td>종별</td>
@@ -206,7 +206,7 @@
 
 	<div id="psy" style="display: none;">
 		<p>심리학과</p>
-		<table>
+		<table class="courseList">
 			<tr>
 				<td>학년</td>
 				<td>종별</td>
