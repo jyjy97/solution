@@ -37,6 +37,11 @@ Project: NEXToTo
 				return true;
 			}
 
+			function only_number() {
+				if ((event.keyCode<48) || event.keyCode>57) {
+					event.returnValue=false;
+				}
+			}
 
 			window.onload = function() {
 				if (document.getElementById("loginButton") != null) {
@@ -55,7 +60,7 @@ Project: NEXToTo
 			<div class="body_wrap identityContainer">
 	
 				<div class="title">
-					<h1>2014-1학기 연세대학교 예비수강신청</h1>
+					<p>2014-1학기 연세대학교 예비수강신청</p>
 				</div>
 	
 				<div id="loginForm_wrap">
@@ -84,7 +89,7 @@ Project: NEXToTo
 							
 							<tr class="row_style">
 								<td class="column_style">학 번</td>
-								<td class="column_style"><input class="form_style" style="font-size:18px" type="text" maxlength="15" name="identification" id="identification" placeholder="20######## 또는 0#####" ></td>
+								<td class="column_style"><input class="form_style" style="font-size:18px" type="text" maxlength="15" onkeypress="only_number();" name="identification" id="identification" placeholder="20######## 또는 0#####" ></td>
 							</tr>
 	
 							<tr class="row_style">
@@ -100,14 +105,15 @@ Project: NEXToTo
 								</td>
 							</tr>
 							
-						</table>	
+						</table>
+							<div class="submit_button_line">
+								<input type="submit" class="submit_button_style" onclick="return fill_check();" value=" 예비 수강신청 하기 ">
+							</div>
 						</form>
 					
 					</div>
 						
-					<div class="submit_button_line">
-						<input type="submit" class="submit_button_style" onclick="return fill_check();" value=" 예비 수강신청 하기 ">
-					</div>
+
 					
 				</div>
 			</div>
