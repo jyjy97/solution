@@ -56,29 +56,49 @@ public class HelloController {
 		else {
 			Iterator<Course> iterator = courseDatabase.findAll().iterator();
 			ArrayList<Course> courses_korean = new ArrayList<Course>();
-			ArrayList<Course> courses_business = new ArrayList<Course>();
 			ArrayList<Course> courses_psy = new ArrayList<Course>();
+			ArrayList<Course> courses_chulhak = new ArrayList<Course>();
+			ArrayList<Course> courses_economy = new ArrayList<Course>();
+			ArrayList<Course> courses_untong = new ArrayList<Course>();
+			ArrayList<Course> courses_jungchi = new ArrayList<Course>();
+			ArrayList<Course> courses_social = new ArrayList<Course>();
+			ArrayList<Course> courses_press = new ArrayList<Course>();
 
 			while (iterator.hasNext()) {
 				Course course = iterator.next();
 				if (course.getCourseMajor().equals("국어국문학과"))
 					courses_korean.add(course);
-				else if (course.getCourseMajor().equals("경영학과"))
-					courses_business.add(course);
 				else if (course.getCourseMajor().equals("심리학과"))
 					courses_psy.add(course);
+				else if (course.getCourseMajor().equals("철학과"))
+					courses_chulhak.add(course);
+				else if (course.getCourseMajor().equals("경제학과"))
+					courses_economy.add(course);
+				else if (course.getCourseMajor().equals("응용통계학과"))
+					courses_untong.add(course);
+				else if (course.getCourseMajor().equals("정치외교학과"))
+					courses_jungchi.add(course);
+				else if (course.getCourseMajor().equals("사회학과"))
+					courses_social.add(course);
+				else if (course.getCourseMajor().equals("언론홍보영상학부"))
+					courses_press.add(course);
 			}
 
 			model.addAttribute("courses_korean", courses_korean);
-			model.addAttribute("courses_business", courses_business);
 			model.addAttribute("courses_psy", courses_psy);
+			model.addAttribute("courses_chulhak", courses_chulhak);
+			model.addAttribute("courses_economy", courses_economy);
+			model.addAttribute("courses_untong", courses_untong);
+			model.addAttribute("courses_jungchi", courses_jungchi);
+			model.addAttribute("courses_social", courses_social);
+			model.addAttribute("courses_press", courses_press);
 
 			return "enrollment";
 		}
 	}
 
 	@RequestMapping(value = "submit", params = {"firstCourse", "secondCourse", "thirdCourse"})
-	public @ResponseBody String submitPage(@RequestParam(value="firstCourse") String firstCourse,
+	public String submitPage(@RequestParam(value="firstCourse") String firstCourse,
 										   @RequestParam(value="secondCourse") String secondCourse,
 										   @RequestParam(value="thirdCourse") String thirdCourse,
 										   HttpSession httpSession) {
@@ -101,8 +121,17 @@ public class HelloController {
 				}
 			}
 
-			return "complete";
+			return "redirect:/complete";
 		}
+
+
+
+		}
+	@RequestMapping(value="complete")
+	public String completePage() {
+		return "complete";
 	}
+
+
 }
 
