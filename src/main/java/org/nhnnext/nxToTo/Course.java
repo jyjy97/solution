@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created By Jinwoo Kim, Yongheon Yoo
+ * Created By Jinwoo Kim, Yonghyeon Yoo
  */
 
 @Entity

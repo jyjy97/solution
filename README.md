@@ -1,7 +1,5 @@
-Next ToTo
+제 51대 학생회 Solution
 
-beta 0.1
+예비수강신청 모듈
 
-Created By Jinwoo Kim
-
-=================
+Created By Jinwoo Kim, Yonghyeon Yoo

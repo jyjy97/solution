@@ -3,7 +3,7 @@ package org.nhnnext.nxToTo;
 import javax.persistence.*;
 
 /**
- * Created By Jinwoo Kim, Yongheon Yoo
+ * Created By Jinwoo Kim, Yonghyeon Yoo
  */
 
 @Entity
