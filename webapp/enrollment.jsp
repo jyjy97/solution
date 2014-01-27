@@ -15,6 +15,7 @@
 	</style>
 	<script>
 		var totalPoint = 0;
+		var totalCourse = 0;
 
 		function select(e) {
 			e.preventDefault();
@@ -43,13 +44,17 @@
 				}
 
 				totalPoint = totalPoint + targetPoint;
+				totalCourse++;
 			}
 		}
 
 		function deleteCourse(e) {
 			e.preventDefault();
+			var targetPoint = parseInt(e.currentTarget.parentElement.parentElement.getElementsByClassName("coursePoint")[0].textContent);
 			e.currentTarget.parentElement.parentElement.parentElement.removeChild(e.currentTarget.parentElement.parentElement);
+
 			totalCourse--;
+			totalPoint = totalPoint - targetPoint;
 		}
 
 		function changeMajorView() {
@@ -98,7 +103,6 @@
 
 		function duplicateCheck() {
 			var courses = document.getElementById("selectedCourse").getElementsByClassName("courseNumber");
-			debugger;
 			switch (totalCourse) {
 				case 0 :
 					alert("아무 과목도 수강신청하지 않았습니다.");
