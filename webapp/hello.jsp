@@ -1,7 +1,5 @@
 ﻿<%--
-Created by Alek
-Date: 11/22/13
-Project: NEXToTo
+	Created By Jinwoo Kim, Yongheon Yoo
 --%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>

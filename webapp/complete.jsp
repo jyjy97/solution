@@ -1,7 +1,5 @@
 <%--
-Created by Alek
-Date: 1/26/14
-Project: PreCourseEnrollment
+	Created By Jinwoo Kim, Yongheon Yoo
 --%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>

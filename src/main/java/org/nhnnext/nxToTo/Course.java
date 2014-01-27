@@ -5,10 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created By Alek
- * Date: 11/23/13
- * Project: NEXToTo
- * Package: org.nhnnext.nxToTo.Instance
+ * Created By Jinwoo Kim, Yongheon Yoo
  */
 
 @Entity
@@ -131,7 +128,7 @@ public class Course {
 		return NumofTotalStudent;
 	}
 
-	public void setNumofTotalStudent(int numofTotalStudent) {
+	void setNumofTotalStudent(int numofTotalStudent) {
 		NumofTotalStudent = numofTotalStudent;
 	}
 

@@ -5,23 +5,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
- * Created By Alek
- * Date: 1/25/14
- * Project: PreCourseEnrollment
- * Package: PACKAGE_NAME
+ * Created By Jinwoo Kim, Yongheon Yoo
  */
 
 @Controller
 @RequestMapping("/solutionAdminPage")
 public class AdminController {
-	@Autowired
-	private AccountDatabase accountDatabase;
 	@Autowired
 	private CourseDatabase courseDatabase;
 	@Autowired
@@ -80,5 +77,19 @@ public class AdminController {
 		}
 
 		return "redirect:/solutionAdminPage/showAllSurveys";
+	}
+
+	@RequestMapping(value = "showAccounts", params = {"courseNumber"})
+	public String showAccountPage(@RequestParam(value="courseNumber") String courseNumber, Model model) {
+		Course course = courseDatabase.findBycourseNumber(courseNumber);
+		List<Survey> surveys = course.getSurveys();
+		ArrayList<Account> accounts = new ArrayList<Account>();
+
+		for (Survey survey : surveys) {
+			accounts.add(survey.getAccount());
+		}
+		model.addAttribute("course", course);
+		model.addAttribute("accounts", accounts);
+		return "admin_showStudentList";
 	}
 }

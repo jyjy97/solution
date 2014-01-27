@@ -9,10 +9,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 /**
- * Created By Alek
- * Date: 1/26/14
- * Project: PreCourseEnrollment
- * Package: org.nhnnext.nxToTo.Instance
+ * Created By Jinwoo Kim, Yongheon Yoo
  */
 
 public class CSVControl {

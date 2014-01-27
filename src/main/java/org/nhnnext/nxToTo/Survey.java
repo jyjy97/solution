@@ -3,10 +3,7 @@ package org.nhnnext.nxToTo;
 import javax.persistence.*;
 
 /**
- * Created By Alek
- * Date: 11/23/13
- * Project: NEXToTo
- * Package: org.nhnnext.nxToTo.Instance
+ * Created By Jinwoo Kim, Yongheon Yoo
  */
 
 @Entity

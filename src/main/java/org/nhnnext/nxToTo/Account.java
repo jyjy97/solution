@@ -4,10 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 /**
- * Created By Alek
- * Date: 11/22/13
- * Project: NEXToTo
- * Package: org.nhnnext.nxToTo.Instance
+ * Created By Jinwoo Kim, Yongheon Yoo
  */
 
 @Entity
@@ -20,8 +17,7 @@ public class Account {
 	@OneToMany(mappedBy = "account", fetch = FetchType.EAGER)
 	private List<Survey> surveys;
 
-
-	Account() {
+	public Account() {
 
 	}
 
@@ -44,51 +40,23 @@ public class Account {
 	@Column(length=20, nullable = false)
 	private String studentWhy;
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public List<Survey> getSurveys() {
 		return surveys;
-	}
-
-	public void setSurveys(List<Survey> surveys) {
-		this.surveys = surveys;
 	}
 
 	public int getStudentNumber() {
 		return studentNumber;
 	}
 
-	public void setStudentNumber(int studentNumber) {
-		this.studentNumber = studentNumber;
-	}
-
 	public int getStudentGrade() {
 		return studentGrade;
-	}
-
-	public void setStudentGrade(int studentGrade) {
-		this.studentGrade = studentGrade;
-	}
-
-	public String getStudentMajor() {
-		return studentMajor;
-	}
-
-	public void setStudentMajor(String studentMajor) {
-		this.studentMajor = studentMajor;
 	}
 
 	public String getStudentWhy() {
 		return studentWhy;
 	}
 
-	public void setStudentWhy(String studentWhy) {
-		this.studentWhy = studentWhy;
+	public String getStudentMajor() {
+		return studentMajor;
 	}
 }

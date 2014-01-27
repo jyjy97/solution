@@ -6,18 +6,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
-* Created By Alek
-* Date: 11/22/13
-* Project: NEXToTo
-* Package: org.nhnnext.nxToTo
-*/
+ * Created By Jinwoo Kim, Yongheon Yoo
+ */
 
 @Controller
 @RequestMapping("/")
@@ -39,14 +36,18 @@ public class HelloController {
 		try {
 			Account targetAccount = accountDatabase.findBystudentNumber(identification);
 			httpSession.setAttribute("identification", targetAccount.getStudentNumber());
-			httpSession.setAttribute("major", targetAccount.getStudentMajor());
-			return "redirect:/enrollment";
+			return "redirect:/loginCheck?status=duplicate";
 		} catch (NullPointerException e) {
 			Account newAccount = new Account(identification, grade, major, why);
 			accountDatabase.save(newAccount);
 			httpSession.setAttribute("identification", newAccount.getStudentNumber());
-			return "redirect:/enrollment";
+			return "redirect:/loginCheck?status=ok";
 		}
+	}
+
+	@RequestMapping(value = "loginCheck")
+	public String loginCheckPage() {
+		return "loginCheck";
 	}
 
 	@RequestMapping(value = "enrollment")
@@ -58,7 +59,7 @@ public class HelloController {
 			ArrayList<Course> courses_korean = new ArrayList<Course>();
 			ArrayList<Course> courses_psy = new ArrayList<Course>();
 			ArrayList<Course> courses_chulhak = new ArrayList<Course>();
-			ArrayList<Course> courses_economy = new ArrayList<Course>();
+			ArrayList<Course> courses_money = new ArrayList<Course>();
 			ArrayList<Course> courses_untong = new ArrayList<Course>();
 			ArrayList<Course> courses_jungchi = new ArrayList<Course>();
 			ArrayList<Course> courses_social = new ArrayList<Course>();
@@ -73,7 +74,7 @@ public class HelloController {
 				else if (course.getCourseMajor().equals("철학과"))
 					courses_chulhak.add(course);
 				else if (course.getCourseMajor().equals("경제학과"))
-					courses_economy.add(course);
+					courses_money.add(course);
 				else if (course.getCourseMajor().equals("응용통계학과"))
 					courses_untong.add(course);
 				else if (course.getCourseMajor().equals("정치외교학과"))
@@ -87,7 +88,7 @@ public class HelloController {
 			model.addAttribute("courses_korean", courses_korean);
 			model.addAttribute("courses_psy", courses_psy);
 			model.addAttribute("courses_chulhak", courses_chulhak);
-			model.addAttribute("courses_economy", courses_economy);
+			model.addAttribute("courses_money", courses_money);
 			model.addAttribute("courses_untong", courses_untong);
 			model.addAttribute("courses_jungchi", courses_jungchi);
 			model.addAttribute("courses_social", courses_social);
@@ -106,17 +107,26 @@ public class HelloController {
 			return "redirect:/";
 		else {
 			Account targetAccount = accountDatabase.findBystudentNumber(Integer.parseInt(String.valueOf(httpSession.getAttribute("identification"))));
-			if (firstCourse == secondCourse || secondCourse == thirdCourse || thirdCourse == firstCourse) {
+
+			if (httpSession.getAttribute("status")=="duplicate") {
+				List<Survey> surveys = targetAccount.getSurveys();
+
+				for (Survey survey : surveys) {
+					surveyDatabase.delete(survey);
+				}
+			}
+
+			if (firstCourse.equals(secondCourse) || secondCourse.equals(thirdCourse) || thirdCourse.equals(firstCourse)) {
 				return "redirect:/enrollment";
 			} else {
 
-				if (!firstCourse.equals("null")) {
+				if (!firstCourse.equals(" ")) {
 					surveyDatabase.save(new Survey(targetAccount, courseDatabase.findBycourseNumber(firstCourse)));
 				}
-				if (!secondCourse.equals("null")) {
+				if (!secondCourse.equals(" ")) {
 					surveyDatabase.save(new Survey(targetAccount, courseDatabase.findBycourseNumber(secondCourse)));
 				}
-				if (!thirdCourse.equals("null")) {
+				if (!thirdCourse.equals("")) {
 					surveyDatabase.save(new Survey(targetAccount, courseDatabase.findBycourseNumber(thirdCourse)));
 				}
 			}

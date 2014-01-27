@@ -1,7 +1,5 @@
-﻿﻿<%--
-  Created by Alek
-  Date: 1/25/14
-  Project: PreCourseEnrollment
+﻿<%--
+	Created By Jinwoo Kim, Yongheon Yoo
 --%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -60,7 +58,7 @@
 				document.getElementById("korean").style.display = "block";
 				document.getElementById("psy").style.display = "none";
 				document.getElementById("chulhak").style.display = "none";
-				document.getElementById("economy").style.display = "none";
+				document.getElementById("money").style.display = "none";
 				document.getElementById("untong").style.display = "none";
 				document.getElementById("jungchi").style.display = "none";
 				document.getElementById("social").style.display = "none";
@@ -70,7 +68,7 @@
 				document.getElementById("korean").style.display = "none";
 				document.getElementById("psy").style.display = "block";
 				document.getElementById("chulhak").style.display = "none";
-				document.getElementById("economy").style.display = "none";
+				document.getElementById("money").style.display = "none";
 				document.getElementById("untong").style.display = "none";
 				document.getElementById("jungchi").style.display = "none";
 				document.getElementById("social").style.display = "none";
@@ -80,7 +78,7 @@
 				document.getElementById("korean").style.display = "none";
 				document.getElementById("psy").style.display = "none";
 				document.getElementById("chulhak").style.display = "block";
-				document.getElementById("economy").style.display = "none";
+				document.getElementById("money").style.display = "none";
 				document.getElementById("untong").style.display = "none";
 				document.getElementById("jungchi").style.display = "none";
 				document.getElementById("social").style.display = "none";
@@ -90,7 +88,7 @@
 				document.getElementById("korean").style.display = "none";
 				document.getElementById("psy").style.display = "none";
 				document.getElementById("chulhak").style.display = "none";
-				document.getElementById("economy").style.display = "block";
+				document.getElementById("money").style.display = "block";
 				document.getElementById("untong").style.display = "none";
 				document.getElementById("jungchi").style.display = "none";
 				document.getElementById("social").style.display = "none";
@@ -100,7 +98,7 @@
 				document.getElementById("korean").style.display = "none";
 				document.getElementById("psy").style.display = "none";
 				document.getElementById("chulhak").style.display = "none";
-				document.getElementById("economy").style.display = "none";
+				document.getElementById("money").style.display = "none";
 				document.getElementById("untong").style.display = "block";
 				document.getElementById("jungchi").style.display = "none";
 				document.getElementById("social").style.display = "none";
@@ -110,7 +108,7 @@
 				document.getElementById("korean").style.display = "none";
 				document.getElementById("psy").style.display = "none";
 				document.getElementById("chulhak").style.display = "none";
-				document.getElementById("economy").style.display = "none";
+				document.getElementById("money").style.display = "none";
 				document.getElementById("untong").style.display = "none";
 				document.getElementById("jungchi").style.display = "block";
 				document.getElementById("social").style.display = "none";
@@ -120,7 +118,7 @@
 				document.getElementById("korean").style.display = "none";
 				document.getElementById("psy").style.display = "none";
 				document.getElementById("chulhak").style.display = "none";
-				document.getElementById("economy").style.display = "none";
+				document.getElementById("money").style.display = "none";
 				document.getElementById("untong").style.display = "none";
 				document.getElementById("jungchi").style.display = "none";
 				document.getElementById("social").style.display = "block";
@@ -130,7 +128,7 @@
 				document.getElementById("korean").style.display = "none";
 				document.getElementById("psy").style.display = "none";
 				document.getElementById("chulhak").style.display = "none";
-				document.getElementById("economy").style.display = "none";
+				document.getElementById("money").style.display = "none";
 				document.getElementById("untong").style.display = "none";
 				document.getElementById("jungchi").style.display = "none";
 				document.getElementById("social").style.display = "none";
@@ -140,26 +138,42 @@
 
 		function submit() {
 			if (duplicateCheck()) {
-
+				var coursesName = document.getElementById("selectedCourse").getElementsByClassName("courseName");
 				var courses = document.getElementById("selectedCourse").getElementsByClassName("courseNumber");
+
 				if (courses[0]!=null) {
 					var firstCourse = courses[0].textContent;
+					var firstCourseName = coursesName[0].textContent;
 				} else {
-					var firstCourse = "null";
+					var firstCourse = " ";
+					var firstCourseName = " ";
 				}
 				if (courses[1]!=null) {
 					var secondCourse = courses[1].textContent;
+					var secondCourseName = coursesName[1].textContent;
 				} else {
-					var secondCourse = "null";
+					var secondCourse = " ";
+					var secondCourseName = " ";
 				}
 				if (courses[2]!=null) {
 					var thirdCourse = courses[2].textContent;
+					var thirdCourseName = coursesName[2].textContent;
 				} else {
-					var thirdCourse = "null";
+					var thirdCourse = " ";
+					var thirdCourseName = " ";
 				}
 
-				var url = "/submit?firstCourse=" + firstCourse + "&secondCourse=" + secondCourse + "&thirdCourse=" + thirdCourse;
-				location.href=url;
+				var message = "다음 과목을 수강신청을 합니다." + "\n1. " + firstCourseName + "\t" + firstCourse + "\n2. " + secondCourseName + "\t" + secondCourse + "\n3. " + thirdCourseName + "\t" + thirdCourse + "\n계속 하시겠습니까?";
+
+				if (confirm(message)) {
+					var url = "/submit?firstCourse=" + firstCourse + "&secondCourse=" + secondCourse + "&thirdCourse=" + thirdCourse;
+					location.href=url;
+				}
+				else {
+					return false;
+				}
+
+
 			}
 		}
 
@@ -203,7 +217,7 @@
 	</script>
 </head>
 <body>
-	<select id="major" onchange=changeMajorView()>
+	<select id="major" onchange="changeMajorView();">
 		<option value="">-- 전공을 선택하세요 --</option>
 		<option value="">-- 문과 대학 --</option>
 		<option value="국어국문학과">국어국문학과</option>
@@ -314,7 +328,7 @@
 		</table>
 	</div>
 
-	<div id="economy" style="display: none;">
+	<div id="money" style="display: none;">
 		<p>경제학과</p>
 		<table class="courseList">
 			<tr>
@@ -329,7 +343,7 @@
 				<td>강의실</td>
 				<td></td>
 			</tr>
-			<c:forEach items="${courses_ecomony}" var="course">
+			<c:forEach items="${courses_money}" var="course">
 				<tr><input type="hidden" id="${course.courseName}" value=0>
 					<td class="courseGrade">${course.courseGrade}</td>
 					<td class="courseType">${course.courseType}</td>
