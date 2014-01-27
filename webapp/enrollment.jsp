@@ -62,82 +62,17 @@
 			if (major.value == "국어국문학과") {
 				document.getElementById("korean").style.display = "block";
 				document.getElementById("psy").style.display = "none";
-				document.getElementById("chulhak").style.display = "none";
-				document.getElementById("economy").style.display = "none";
-				document.getElementById("untong").style.display = "none";
-				document.getElementById("jungchi").style.display = "none";
-				document.getElementById("social").style.display = "none";
-				document.getElementById("press").style.display = "none";
+				document.getElementById("business").style.display = "none";
+			}
+			if (major.value == "경영학과") {
+				document.getElementById("korean").style.display = "none";
+				document.getElementById("psy").style.display = "none";
+				document.getElementById("business").style.display = "block";
 			}
 			if (major.value == "심리학과") {
 				document.getElementById("korean").style.display = "none";
 				document.getElementById("psy").style.display = "block";
-				document.getElementById("chulhak").style.display = "none";
-				document.getElementById("economy").style.display = "none";
-				document.getElementById("untong").style.display = "none";
-				document.getElementById("jungchi").style.display = "none";
-				document.getElementById("social").style.display = "none";
-				document.getElementById("press").style.display = "none";
-			}
-			if (major.value == "철학과") {
-				document.getElementById("korean").style.display = "none";
-				document.getElementById("psy").style.display = "none";
-				document.getElementById("chulhak").style.display = "block";
-				document.getElementById("economy").style.display = "none";
-				document.getElementById("untong").style.display = "none";
-				document.getElementById("jungchi").style.display = "none";
-				document.getElementById("social").style.display = "none";
-				document.getElementById("press").style.display = "none";
-			}
-			if (major.value == "경제학과") {
-				document.getElementById("korean").style.display = "block";
-				document.getElementById("psy").style.display = "none";
-				document.getElementById("chulhak").style.display = "none";
-				document.getElementById("economy").style.display = "block";
-				document.getElementById("untong").style.display = "none";
-				document.getElementById("jungchi").style.display = "none";
-				document.getElementById("social").style.display = "none";
-				document.getElementById("press").style.display = "none";
-			}
-			if (major.value == "응용통계학과") {
-				document.getElementById("korean").style.display = "none";
-				document.getElementById("psy").style.display = "none";
-				document.getElementById("chulhak").style.display = "none";
-				document.getElementById("economy").style.display = "none";
-				document.getElementById("untong").style.display = "block";
-				document.getElementById("jungchi").style.display = "none";
-				document.getElementById("social").style.display = "none";
-				document.getElementById("press").style.display = "none";
-			}
-			if (major.value == "정치외교학과") {
-				document.getElementById("korean").style.display = "none";
-				document.getElementById("psy").style.display = "none";
-				document.getElementById("chulhak").style.display = "none";
-				document.getElementById("economy").style.display = "none";
-				document.getElementById("untong").style.display = "none";
-				document.getElementById("jungchi").style.display = "block";
-				document.getElementById("social").style.display = "none";
-				document.getElementById("press").style.display = "none";
-			}
-			if (major.value == "사회학과") {
-				document.getElementById("korean").style.display = "none";
-				document.getElementById("psy").style.display = "none";
-				document.getElementById("chulhak").style.display = "none";
-				document.getElementById("economy").style.display = "none";
-				document.getElementById("untong").style.display = "none";
-				document.getElementById("jungchi").style.display = "none";
-				document.getElementById("social").style.display = "block";
-				document.getElementById("press").style.display = "none";
-			}
-			if (major.value == "언론홍보영상학부") {
-				document.getElementById("korean").style.display = "none";
-				document.getElementById("psy").style.display = "none";
-				document.getElementById("chulhak").style.display = "none";
-				document.getElementById("economy").style.display = "none";
-				document.getElementById("untong").style.display = "none";
-				document.getElementById("jungchi").style.display = "none";
-				document.getElementById("social").style.display = "none";
-				document.getElementById("press").style.display = "block";
+				document.getElementById("business").style.display = "none";
 			}
 		}
 
@@ -207,13 +142,9 @@
 </head>
 <body>
 	<select id="major" onchange=changeMajorView()>
-		<option value="0">-- 전공을 선택하세요 --</option>
+		<option value="0">전공을 선택하세요</option>
 		<option value="국어국문학과">국어국문학과</option>
-		<option value="심리학과">심리학과</option>
-		<option value="심리학과">심리학과</option>
-		<option value="심리학과">심리학과</option>
-		<option value="심리학과">심리학과</option>
-		<option value="심리학과">심리학과</option>
+		<option value="경영학과">경영학과</option>
 		<option value="심리학과">심리학과</option>
 	</select>
 
@@ -249,6 +180,38 @@
 	</table>
 	</div>
 
+	<div id="business" style="display: none;">
+		<p>경영학과</p>
+		<table class="courseList">
+			<tr>
+				<td>학년</td>
+				<td>종별</td>
+				<td>단위</td>
+				<td>학정번호</td>
+				<td>학점</td>
+				<td>교과목명</td>
+				<td>담당교수</td>
+				<td>강의시간</td>
+				<td>강의실</td>
+				<td></td>
+			</tr>
+			<c:forEach items="${courses_business}" var="course">
+				<tr><input type="hidden" id="${course.courseName}" value=0>
+					<td class="courseGrade">${course.courseGrade}</td>
+					<td class="courseType">${course.courseType}</td>
+					<td class="courseLevel">${course.courseLevel}</td>
+					<td class="courseNumber">${course.courseNumber}</td>
+					<td class="coursePoint">${course.coursePoint}</td>
+					<td class="courseName">${course.courseName}</td>
+					<td class="courseProfessor">${course.courseProfessor}</td>
+					<td class="courseTime">${course.courseTime}</td>
+					<td class="courseLocation">${course.courseLocation}</td>
+					<td><button class="courseSelect">수강신청</button></td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
+
 	<div id="psy" style="display: none;">
 		<p>심리학과</p>
 		<table class="courseList">
@@ -265,166 +228,6 @@
 				<td></td>
 			</tr>
 			<c:forEach items="${courses_psy}" var="course">
-				<tr><input type="hidden" id="${course.courseName}" value=0>
-					<td class="courseGrade">${course.courseGrade}</td>
-					<td class="courseType">${course.courseType}</td>
-					<td class="courseLevel">${course.courseLevel}</td>
-					<td class="courseNumber">${course.courseNumber}</td>
-					<td class="coursePoint">${course.coursePoint}</td>
-					<td class="courseName">${course.courseName}</td>
-					<td class="courseProfessor">${course.courseProfessor}</td>
-					<td class="courseTime">${course.courseTime}</td>
-					<td class="courseLocation">${course.courseLocation}</td>
-					<td><button class="courseSelect">수강신청</button></td>
-				</tr>
-			</c:forEach>
-		</table>
-	</div>
-
-	<div id="chulhak" style="display: none;">
-		<p>철학과</p>
-		<table class="courseList">
-			<tr>
-				<td>학년</td>
-				<td>종별</td>
-				<td>단위</td>
-				<td>학정번호</td>
-				<td>학점</td>
-				<td>교과목명</td>
-				<td>담당교수</td>
-				<td>강의시간</td>
-				<td>강의실</td>
-				<td></td>
-			</tr>
-			<c:forEach items="${courses_chulhak}" var="course">
-				<tr><input type="hidden" id="${course.courseName}" value=0>
-					<td class="courseGrade">${course.courseGrade}</td>
-					<td class="courseType">${course.courseType}</td>
-					<td class="courseLevel">${course.courseLevel}</td>
-					<td class="courseNumber">${course.courseNumber}</td>
-					<td class="coursePoint">${course.coursePoint}</td>
-					<td class="courseName">${course.courseName}</td>
-					<td class="courseProfessor">${course.courseProfessor}</td>
-					<td class="courseTime">${course.courseTime}</td>
-					<td class="courseLocation">${course.courseLocation}</td>
-					<td><button class="courseSelect">수강신청</button></td>
-				</tr>
-			</c:forEach>
-		</table>
-	</div>
-
-	<div id="untong" style="display: none;">
-		<p>응용통계학과</p>
-		<table class="courseList">
-			<tr>
-				<td>학년</td>
-				<td>종별</td>
-				<td>단위</td>
-				<td>학정번호</td>
-				<td>학점</td>
-				<td>교과목명</td>
-				<td>담당교수</td>
-				<td>강의시간</td>
-				<td>강의실</td>
-				<td></td>
-			</tr>
-			<c:forEach items="${courses_untong}" var="course">
-				<tr><input type="hidden" id="${course.courseName}" value=0>
-					<td class="courseGrade">${course.courseGrade}</td>
-					<td class="courseType">${course.courseType}</td>
-					<td class="courseLevel">${course.courseLevel}</td>
-					<td class="courseNumber">${course.courseNumber}</td>
-					<td class="coursePoint">${course.coursePoint}</td>
-					<td class="courseName">${course.courseName}</td>
-					<td class="courseProfessor">${course.courseProfessor}</td>
-					<td class="courseTime">${course.courseTime}</td>
-					<td class="courseLocation">${course.courseLocation}</td>
-					<td><button class="courseSelect">수강신청</button></td>
-				</tr>
-			</c:forEach>
-		</table>
-	</div>
-
-	<div id="jungchi" style="display: none;">
-		<p>정치외교학과</p>
-		<table class="courseList">
-			<tr>
-				<td>학년</td>
-				<td>종별</td>
-				<td>단위</td>
-				<td>학정번호</td>
-				<td>학점</td>
-				<td>교과목명</td>
-				<td>담당교수</td>
-				<td>강의시간</td>
-				<td>강의실</td>
-				<td></td>
-			</tr>
-			<c:forEach items="${courses_jungchi}" var="course">
-				<tr><input type="hidden" id="${course.courseName}" value=0>
-					<td class="courseGrade">${course.courseGrade}</td>
-					<td class="courseType">${course.courseType}</td>
-					<td class="courseLevel">${course.courseLevel}</td>
-					<td class="courseNumber">${course.courseNumber}</td>
-					<td class="coursePoint">${course.coursePoint}</td>
-					<td class="courseName">${course.courseName}</td>
-					<td class="courseProfessor">${course.courseProfessor}</td>
-					<td class="courseTime">${course.courseTime}</td>
-					<td class="courseLocation">${course.courseLocation}</td>
-					<td><button class="courseSelect">수강신청</button></td>
-				</tr>
-			</c:forEach>
-		</table>
-	</div>
-
-	<div id="social" style="display: none;">
-		<p>사회학과</p>
-		<table class="courseList">
-			<tr>
-				<td>학년</td>
-				<td>종별</td>
-				<td>단위</td>
-				<td>학정번호</td>
-				<td>학점</td>
-				<td>교과목명</td>
-				<td>담당교수</td>
-				<td>강의시간</td>
-				<td>강의실</td>
-				<td></td>
-			</tr>
-			<c:forEach items="${courses_social}" var="course">
-				<tr><input type="hidden" id="${course.courseName}" value=0>
-					<td class="courseGrade">${course.courseGrade}</td>
-					<td class="courseType">${course.courseType}</td>
-					<td class="courseLevel">${course.courseLevel}</td>
-					<td class="courseNumber">${course.courseNumber}</td>
-					<td class="coursePoint">${course.coursePoint}</td>
-					<td class="courseName">${course.courseName}</td>
-					<td class="courseProfessor">${course.courseProfessor}</td>
-					<td class="courseTime">${course.courseTime}</td>
-					<td class="courseLocation">${course.courseLocation}</td>
-					<td><button class="courseSelect">수강신청</button></td>
-				</tr>
-			</c:forEach>
-		</table>
-	</div>
-
-	<div id="press" style="display: none;">
-		<p>언론홍보영상학부</p>
-		<table class="courseList">
-			<tr>
-				<td>학년</td>
-				<td>종별</td>
-				<td>단위</td>
-				<td>학정번호</td>
-				<td>학점</td>
-				<td>교과목명</td>
-				<td>담당교수</td>
-				<td>강의시간</td>
-				<td>강의실</td>
-				<td></td>
-			</tr>
-			<c:forEach items="${courses_press}" var="course">
 				<tr><input type="hidden" id="${course.courseName}" value=0>
 					<td class="courseGrade">${course.courseGrade}</td>
 					<td class="courseType">${course.courseType}</td>

@@ -1,34 +1,78 @@
 .body
 {
 	width:720px;
-	font-family:'Malgun Gothic';
 	margin:auto;
-	text-align:center;	
-
 }
+
+
+
+.courseGrade
+{
+	width:100px;
+}
+
+.courseType
+{
+	width:100px;	
+}			
+.courseLevel
+{
+	width:100px;
+}
+.courseNumber
+{
+	width:100px;
+}
+.coursePoint
+{
+	width:100px;	
+}
+.courseName
+{
+	width:100px;
+}
+.courseProfessor
+{
+	width:100px;	
+}
+.courseTime
+{
+	width:100px;	
+}
+.courseLocation
+{
+	width:100px;
+}
+
+
+
+
+
+
 
 
 .login_info_list
 {
-	margin: 30px 0;
 	line-height: 160%;
+	height:70px;
+	text-align:center;
 }
 
 .login_info_list_name
 {
 	width:300px;
-	margin-right: 100px;
-	font-size:20px;
 }
+
 
 .form_width
 {
-	width: 200px;
+	
+	width: 200px;	
 }
 
-.inline-block
+.float_left
 {
-	display:inline-block;
+	float:left;
 }
 
 .notice
