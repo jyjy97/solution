@@ -10,37 +10,52 @@
 	<head>
 		<title>예비수강신청</title>
 
-		<!---
 		<style type="text/css">
 		table { border-collapse:collapse; }
 		tr, td { border:1px solid #000000; }
+
 		</style>
-		-->
 		<script>
+			var totalPoint = 0;
 			var totalCourse = 0;
 
 			function select(e) {
 				e.preventDefault();
-				if (totalCourse >= 3) {
-					alert("최대 수강신청 과목 수를 초과하였습니다.");
-				} else {
+
+				var targetPoint = parseInt(e.currentTarget.parentElement.parentElement.getElementsByClassName("coursePoint")[0].textContent);
+	//			debugger;
+				if (totalPoint + targetPoint > 9) {
+					alert("9학점을 초과하였습니다.");
+				}
+
+				else {
+
 					e.currentTarget.parentElement.parentElement.children[0].value = 1;
 
-					var tempHTML = e.currentTarget.parentElement.parentElement.innerHTML;
-					var tempElement = document.createElement("tr");
-					tempElement.innerHTML = tempHTML;
+						tempElement.getElementsByClassName("courseSelect")[0].textContent = "지우기";
+						tempElement.getElementsByClassName("courseSelect")[0].className = "courseDelete";
 
-					tempElement.getElementsByClassName("courseSelect")[0].textContent = "지우기";
-					tempElement.getElementsByClassName("courseSelect")[0].className = "courseDelete";
+						document.getElementById("selectedCourse").insertAdjacentHTML('beforeend', tempElement.innerHTML);
+						var deleteKeys = document.getElementsByClassName("courseDelete");
+						for (var i = 0; i < deleteKeys.length; i++) {
+							deleteKeys[i].addEventListener('click', deleteCourse, false);
+						}
 
-					document.getElementById("selectedCourse").insertAdjacentHTML('beforeend', tempElement.innerHTML);
-					var deleteKeys = document.getElementsByClassName("courseDelete");
-					for (var i = 0; i < deleteKeys.length; i++) {
-						deleteKeys[i].addEventListener('click', deleteCourse, false);
+						totalCourse++;
 					}
 
+					totalPoint = totalPoint + targetPoint;
 					totalCourse++;
 				}
+			}
+
+			function deleteCourse(e) {
+				e.preventDefault();
+				var targetPoint = parseInt(e.currentTarget.parentElement.parentElement.getElementsByClassName("coursePoint")[0].textContent);
+				e.currentTarget.parentElement.parentElement.parentElement.removeChild(e.currentTarget.parentElement.parentElement);
+
+				totalCourse--;
+				totalPoint = totalPoint - targetPoint;
 			}
 
 			function deleteCourse(e) {
@@ -68,30 +83,40 @@
 				}
 			}
 
-			function submit() {
-				if (duplicateCheck()) {
+			function duplicateCheck() {
+				var courses = document.getElementById("selectedCourse").getElementsByClassName("courseNumber");
+				switch (totalCourse) {
+					case 0 :
+						alert("아무 과목도 수강신청하지 않았습니다.");
+						return false;
+						break;
+					case 1 :
+						return true;
+						break;
+					case 2 :
+						if (courses[0].textContent == courses[1].textContent) {
+							alert("중복된 과목이 있습니다.");
+							return false;
+							break;
+							
+						} else {
+							var firstCourse = "null";
+						}
+						if (courses[1] != null) {
+							var secondCourse = courses[1].textContent;
+						} else {
+							var secondCourse = "null";
+						}
+						if (courses[2] != null) {
+							var thirdCourse = courses[2].textContent;
+						} else {
+							var thirdCourse = "null";
+						}
 
-					var courses = document.getElementById("selectedCourse").getElementsByClassName("courseNumber");
-					if (courses[0] != null) {
-						var firstCourse = courses[0].textContent;
-					} else {
-						var firstCourse = "null";
+						var url = "/submit?firstCourse=" + firstCourse + "&secondCourse=" + secondCourse + "&thirdCourse=" + thirdCourse;
+						location.href = url;
 					}
-					if (courses[1] != null) {
-						var secondCourse = courses[1].textContent;
-					} else {
-						var secondCourse = "null";
-					}
-					if (courses[2] != null) {
-						var thirdCourse = courses[2].textContent;
-					} else {
-						var thirdCourse = "null";
-					}
-
-					var url = "/submit?firstCourse=" + firstCourse + "&secondCourse=" + secondCourse + "&thirdCourse=" + thirdCourse;
-					location.href = url;
 				}
-			}
 
 			function duplicateCheck() {
 				var courses = document.getElementById("selectedCourse").getElementsByClassName("courseNumber"); debugger;
