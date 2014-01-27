@@ -1,0 +1,108 @@
+.body
+{
+	width:720px;
+	margin:auto;
+}
+
+
+
+.courseGrade
+{
+	width:100px;
+}
+
+.courseType
+{
+	width:100px;	
+}			
+.courseLevel
+{
+	width:100px;
+}
+.courseNumber
+{
+	width:100px;
+}
+.coursePoint
+{
+	width:100px;	
+}
+.courseName
+{
+	width:100px;
+}
+.courseProfessor
+{
+	width:100px;	
+}
+.courseTime
+{
+	width:100px;	
+}
+.courseLocation
+{
+	width:100px;
+}
+
+
+
+
+
+
+
+
+.login_info_list
+{
+	line-height: 160%;
+	height:70px;
+	text-align:center;
+}
+
+.login_info_list_name
+{
+	width:300px;
+}
+
+
+.form_width
+{
+	
+	width: 200px;	
+}
+
+.float_left
+{
+	float:left;
+}
+
+.notice
+{
+	width:600px;
+	border-style:solid;
+	margin: 30px auto;
+	padding: 10px;
+}
+
+.notice_title
+{
+	text-align:center;
+	font-size: 24px;
+	font-weight:bold;
+	line-height: 160%;
+}
+
+.notice_content
+{
+	text-align:justify;
+	font-size: 20px;
+	line-height: 160%;
+	padding: 5px;
+}
+
+.solution_logo
+{
+	width:367px;
+	height:129px;
+	margin:auto;
+	padding-top: 30px;
+}
