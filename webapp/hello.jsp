@@ -66,11 +66,8 @@
 					<div class="float_left login_info_list_name">
 						본전공(학과)
 					</div>
-					<select class="form_width" name="major" id="major">
-						<option value="">-- 주전공 --</option>
-						<option value="경영학과">경영학과</option>
-						<option value="심리학과">심리학과</option>
-					</select>
+					<input class="form_width" type="text" name="major" id="major" size="15" placeholder="본전공">
+
 				</div>
 
 				<div class="login_info_list">
