@@ -38,7 +38,7 @@ public class Course {
 	@OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
 	private List<Survey> surveys;
 
-	@Column(length = 20, nullable = false)
+	@Column(length = 100, nullable = false)
 	private String courseName;
 	@Column(length = 20, nullable = false)
 	private String courseMajor;
