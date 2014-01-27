@@ -87,7 +87,7 @@
 				document.getElementById("press").style.display = "none";
 			}
 			if (major.value == "경제학과") {
-				document.getElementById("korean").style.display = "block";
+				document.getElementById("korean").style.display = "none";
 				document.getElementById("psy").style.display = "none";
 				document.getElementById("chulhak").style.display = "none";
 				document.getElementById("economy").style.display = "block";
