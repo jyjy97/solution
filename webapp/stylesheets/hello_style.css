@@ -3,46 +3,65 @@
 	width:720px;
 	font-family:'Malgun Gothic';
 	margin:auto;
-	text-align:center;	
-
 }
 
-
-.login_info_list
+.title
 {
-	margin: 30px 0;
-	line-height: 160%;
+	font-size:20px;
+	width:680px
+	text-align:justify;
+	margin:20px;
 }
 
-.login_info_list_name
+.login_info
 {
-	width:300px;
-	margin-right: 100px;
+	margin:20px;
+	width:680px;
+}
+
+.column_style
+{	
+	width:338px;
+	height:50px;
+
+	font-size:20px;
+	text-align:center;
+
+	.vertical-align: middle;
+}
+
+.form_style
+{
+	width: 220px;
+	height: 30px;
 	font-size:20px;
 }
 
-.form_width
+.submit_button_line
 {
-	width: 200px;
+	text-align:center;
+	margin:20px;
 }
 
-.inline-block
-{
-	display:inline-block;
+.submit_button_style{
+	width: 300px;
+	height: 70px;
+	font-size: 30px;
 }
 
 .notice
 {
-	width:600px;
+	width:640px;
 	border-style:solid;
-	margin: 30px auto;
-	padding: 10px;
+	border-width:5px;
+	margin: 30px 20px 20px;
+	padding: 0 15px 15px;
 }
 
 .notice_title
 {
 	text-align:center;
-	font-size: 24px;
+	font-size: 30px;
 	font-weight:bold;
 	line-height: 160%;
 }
@@ -50,9 +69,8 @@
 .notice_content
 {
 	text-align:justify;
-	font-size: 20px;
-	line-height: 160%;
-	padding: 5px;
+	font-size: 21px;
+	line-height: 200%;
 }
 
 .solution_logo
@@ -60,5 +78,5 @@
 	width:367px;
 	height:129px;
 	margin:auto;
-	padding-top: 30px;
+	padding-top: 20px;
 }
