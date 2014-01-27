@@ -21,7 +21,7 @@ public class CSVControl {
 	}
 
 	public static ArrayList<String[]> reader() throws IOException {
-		CSVReader reader = new CSVReader(new InputStreamReader(new FileInputStream("/home/ubuntu"),"UTF8"));
+		CSVReader reader = new CSVReader(new InputStreamReader(new FileInputStream("/home/ubuntu/list.csv"),"UTF8"));
 		String[] nextLine;
 		ArrayList<String[]> strings = new ArrayList<String[]>();
 
