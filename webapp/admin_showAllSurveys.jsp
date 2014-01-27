@@ -17,8 +17,8 @@
 <body>
 	<table>
 		<tr>
-			<td>학정번호</td>
 			<td>학번</td>
+			<td>학정번호</td>
 		</tr>
 
 	<c:forEach items="${surveys}" var="survey">

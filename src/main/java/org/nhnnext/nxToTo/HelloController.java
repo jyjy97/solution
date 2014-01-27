@@ -45,7 +45,6 @@ public class HelloController {
 			Account newAccount = new Account(identification, grade, major, why);
 			accountDatabase.save(newAccount);
 			httpSession.setAttribute("identification", newAccount.getStudentNumber());
-			httpSession.setAttribute("major", newAccount.getStudentMajor());
 			return "redirect:/enrollment";
 		}
 	}
@@ -83,18 +82,27 @@ public class HelloController {
 										   @RequestParam(value="secondCourse") String secondCourse,
 										   @RequestParam(value="thirdCourse") String thirdCourse,
 										   HttpSession httpSession) {
-		Account targetAccount = accountDatabase.findBystudentNumber(Integer.parseInt(String.valueOf(httpSession.getAttribute("identification"))));
-		if (!firstCourse.equals("null")) {
-			surveyDatabase.save(new Survey(targetAccount, courseDatabase.findBycourseNumber(firstCourse)));
-		}
-		if (!secondCourse.equals("null")) {
-			surveyDatabase.save(new Survey(targetAccount, courseDatabase.findBycourseNumber(secondCourse)));
-		}
-		if (!thirdCourse.equals("null")) {
-			surveyDatabase.save(new Survey(targetAccount, courseDatabase.findBycourseNumber(thirdCourse)));
-		}
+		if (httpSession.getAttribute("identification")==null)
+			return "redirect:/";
+		else {
+			Account targetAccount = accountDatabase.findBystudentNumber(Integer.parseInt(String.valueOf(httpSession.getAttribute("identification"))));
+			if (firstCourse == secondCourse || secondCourse == thirdCourse || thirdCourse == firstCourse) {
+				return "redirect:/enrollment";
+			} else {
 
-		return "complete";
+				if (!firstCourse.equals("null")) {
+					surveyDatabase.save(new Survey(targetAccount, courseDatabase.findBycourseNumber(firstCourse)));
+				}
+				if (!secondCourse.equals("null")) {
+					surveyDatabase.save(new Survey(targetAccount, courseDatabase.findBycourseNumber(secondCourse)));
+				}
+				if (!thirdCourse.equals("null")) {
+					surveyDatabase.save(new Survey(targetAccount, courseDatabase.findBycourseNumber(thirdCourse)));
+				}
+			}
+
+			return "complete";
+		}
 	}
 }
 
