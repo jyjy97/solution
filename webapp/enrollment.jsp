@@ -14,15 +14,19 @@
 		tr, td { border:1px solid #000000; }
 	</style>
 	<script>
-		var totalCourse = 0;
+		var totalPoint = 0;
 
 		function select(e) {
 			e.preventDefault();
-			if (totalCourse >= 3) {
-				alert("최대 수강신청 과목 수를 초과하였습니다.");
+
+			var targetPoint = parseInt(e.currentTarget.parentElement.parentElement.getElementsByClassName("coursePoint")[0].textContent);
+//			debugger;
+			if (totalPoint + targetPoint > 9) {
+				alert("9학점을 초과하였습니다.");
 			}
 
 			else {
+
 				e.currentTarget.parentElement.parentElement.children[0].value = 1;
 
 				var tempHTML = e.currentTarget.parentElement.parentElement.innerHTML;
@@ -38,7 +42,7 @@
 					deleteKeys[i].addEventListener('click', deleteCourse, false);
 				}
 
-				totalCourse++;
+				totalPoint = totalPoint + targetPoint;
 			}
 		}
 
