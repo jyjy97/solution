@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -25,7 +26,10 @@ public class AdminController {
 	private SurveyDatabase surveyDatabase;
 
 	@RequestMapping(value = "createCourse")
-	public String createCoursePage(Model model) {
+	public String createCoursePage(Model model, HttpSession httpSession) {
+		if (httpSession.getAttribute("admin")==null)
+			return "redirect:/";
+
 		Iterator<Course> iterator = courseDatabase.findAll().iterator();
 		ArrayList<Course> courses = new ArrayList<Course>();
 		while(iterator.hasNext()) {
@@ -43,7 +47,10 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "showAllSurveys")
-	public String surveyResultPage(Model model) {
+	public String surveyResultPage(Model model, HttpSession httpSession) {
+		if (httpSession.getAttribute("admin")==null)
+			return "redirect:/";
+
 		Iterator<Survey> iterator1 = surveyDatabase.findAll().iterator();
 		ArrayList<Survey> surveys = new ArrayList<Survey>();
 		while(iterator1.hasNext()) {
@@ -80,7 +87,10 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "showAccounts", params = {"courseNumber"})
-	public String showAccountPage(@RequestParam(value="courseNumber") String courseNumber, Model model) {
+	public String showAccountPage(@RequestParam(value="courseNumber") String courseNumber, Model model, HttpSession httpSession) {
+		if (httpSession.getAttribute("admin")==null)
+			return "redirect:/";
+
 		Course course = courseDatabase.findBycourseNumber(courseNumber);
 		List<Survey> surveys = course.getSurveys();
 		ArrayList<Account> accounts = new ArrayList<Account>();
@@ -91,5 +101,18 @@ public class AdminController {
 		model.addAttribute("course", course);
 		model.addAttribute("accounts", accounts);
 		return "admin_showStudentList";
+	}
+
+	@RequestMapping(value = "main")
+	public String adminMainPage(HttpSession httpSession) {
+		if (httpSession.getAttribute("admin")==null)
+			return "redirect:/";
+		return "admin_main";
+	}
+
+	@RequestMapping(value = "logout")
+	public String logoutAction(HttpSession httpSession) {
+		httpSession.invalidate();
+		return "redirect:/";
 	}
 }

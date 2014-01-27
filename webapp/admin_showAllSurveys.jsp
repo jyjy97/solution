@@ -19,6 +19,7 @@
 	</script>
 </head>
 <body>
+	<p><a href="/solutionAdminPage/main"><- 메인으로</a></p>
 	<table>
 		<tr>
 			<td>과목명</td>

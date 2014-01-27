@@ -14,8 +14,14 @@
 		{
 			document.location.href="http://solutionyonsei.ac.kr";
 		}
-
 	</script>
+
+	<% session = request.getSession(false);
+		if(session != null) {
+			session.invalidate();
+		}
+	%>
+
 </head>
 
 <body class="body">
