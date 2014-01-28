@@ -4,9 +4,33 @@
 
 .body
 {
-	width:720px;
-	margin:auto;
+	width:100%;
 }
+
+.wrap
+{
+	width:960px;
+	margin: 5px auto 0px;
+	font-family:'Malgun Gothic'
+}
+
+.notice
+{
+	margin: auto;
+	border-style:solid;
+	padding: 10px 20px;
+	text-align:justify;	
+	font-size:25px;
+	line-height: 200%;
+}
+
+.inline-block
+{
+	display:inline-block;
+}
+
+
+
 
 .courseGrade
 {
@@ -66,45 +90,3 @@
 }
 
 
-.form_width
-{
-	
-	width: 200px;	
-}
-
-.float_left
-{
-	float:left;
-}
-
-.notice
-{
-	width:600px;
-	border-style:solid;
-	margin: 30px auto;
-	padding: 10px;
-}
-
-.notice_title
-{
-	text-align:center;
-	font-size: 24px;
-	font-weight:bold;
-	line-height: 160%;
-}
-
-.notice_content
-{
-	text-align:justify;
-	font-size: 20px;
-	line-height: 160%;
-	padding: 5px;
-}
-
-.solution_logo
-{
-	width:367px;
-	height:129px;
-	margin:auto;
-	padding-top: 30px;
-}

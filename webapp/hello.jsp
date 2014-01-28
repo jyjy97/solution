@@ -4,10 +4,19 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 	<head>
 
 		<title>2014학년도 1학기 연세대학교 예비수강신청</title>
+		
+		<link rel="stylesheet" type="text/css" href="./css/hello_style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+			
+
+
 
 		<script>
 			function fill_check(){
@@ -49,7 +58,8 @@
 			
 		</script>
 
-		<link rel="stylesheet" type="text/css" href="./stylesheets/hello_style.css">
+
+
 	</head>
 
 	<body>
@@ -128,10 +138,12 @@
 				</div>
 	
 				<div class="solution_logo">
-					<img src="./images/solution_logo.png" alt="Solution Logo">
+					<img src="img/solution_logo.png" alt="Solution Logo">
 				</div>
 			</div>
 		</div>
 		
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="js/bootstrap.min.js"></script>
 	</body>
 </html>
