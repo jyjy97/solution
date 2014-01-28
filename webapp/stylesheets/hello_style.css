@@ -2,6 +2,10 @@
  * Created By Jinwoo Kim, Yonghyeon Yoo
  */
 
+body{
+	width:100%;
+}
+
 .body
 {
 	width:720px;
@@ -71,6 +75,7 @@
 
 .notice_content
 {
+	width:640px;
 	text-align:justify;
 	font-size: 21px;
 	line-height: 200%;
