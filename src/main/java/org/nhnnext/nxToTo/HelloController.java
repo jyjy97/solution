@@ -108,17 +108,17 @@ public class HelloController {
 		else {
 			Account targetAccount = accountDatabase.findBystudentNumber(Integer.parseInt(String.valueOf(httpSession.getAttribute("identification"))));
 
-			if (httpSession.getAttribute("status")=="duplicate") {
-				List<Survey> surveys = targetAccount.getSurveys();
-
-				for (Survey survey : surveys) {
-					surveyDatabase.delete(survey);
-				}
-			}
-
 			if (firstCourse.equals(secondCourse) || secondCourse.equals(thirdCourse) || thirdCourse.equals(firstCourse)) {
 				return "redirect:/enrollment";
+
 			} else {
+				if (httpSession.getAttribute("status")=="duplicate") {
+					List<Survey> surveys = targetAccount.getSurveys();
+
+					for (Survey survey : surveys) {
+						surveyDatabase.delete(survey);
+					}
+				}
 
 				if (!firstCourse.equals(" ")) {
 					surveyDatabase.save(new Survey(targetAccount, courseDatabase.findBycourseNumber(firstCourse)));
