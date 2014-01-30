@@ -7,7 +7,7 @@ Created By Jinwoo Kim, Yonghyeon Yoo
 <html>
 	<head>
 		<title>예비수강신청</title>
-		<link rel="stylesheet" type="text/css" href="./css/enrollment_style.css">
+		<!-- <link rel="stylesheet" type="text/css" href="./css/enrollment_style.css"> -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Bootstrap -->
 		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -223,10 +223,13 @@ Created By Jinwoo Kim, Yonghyeon Yoo
 			}
 		</script>
 	</head>
-	<body class="body">
+	<body>
 	
-		<div class="wrap">
-			<div class="notice">졸업 필수 또는 커리큘럼 상 꼭 들어야 하는 과목이지만 TO가 부족해 듣지 못하는 상황을 방지하기 위하여 진행되는 예비수강신청 입니다. 이번 학기에 꼭 들을 과목에 한해서만 예비수강신청을 진행해주시기 바랍니다. 신청 완료후에는 변경이 불가하오니 학우 여러분께서는 신중히 선택해주시기 바랍니다.</div>
+		<div class="container">
+			<div class="hero-unit">
+				<p>졸업 필수 또는 커리큘럼 상 꼭 들어야 하는 과목이지만 TO가 부족해 듣지 못하는 상황을 방지하기 위하여 진행되는 예비수강신청 입니다.</p>
+				<p>이번 학기에 꼭 들을 과목에 한해서만 예비수강신청을 진행해주시기 바랍니다. 신청 완료후에는 변경이 불가하오니 학우 여러분께서는 신중히 선택해주시기 바랍니다.</p>
+			</div>
 			
 			<hr>
 			
@@ -250,23 +253,23 @@ Created By Jinwoo Kim, Yonghyeon Yoo
 				</div>
 			</div>
 			
-			<div id="korean" style="display: none;">
-				<p>
-					국어국문학과
-				</p>
-				<table class="courseList">
+			<table id="korean" style="display: none;" class="table table-hover table-condensed courseList">
+				<caption class="text-left">국어국문학과</caption>
+				<thead>
 					<tr>
-						<td>학년</td>
-						<td>종별</td>
-						<td>단위</td>
-						<td>학정번호</td>
-						<td>학점</td>
-						<td>교과목명</td>
-						<td>담당교수</td>
-						<td>강의시간</td>
-						<td>강의실</td>
-						<td></td>
+						<th>학년</th>
+						<th>종별</th>
+						<th>단위</th>
+						<th>학정번호</th>
+						<th>학점</th>
+						<th>교과목명</th>
+						<th>담당교수</th>
+						<th>강의시간</th>
+						<th>강의실</th>
+						<th> </th>
 					</tr>
+				</thead>
+				<tbody>
 					<c:forEach items="${courses_korean}" var="course">
 						<tr>
 							<input type="hidden" id="${course.courseName}" value=0>
@@ -279,12 +282,12 @@ Created By Jinwoo Kim, Yonghyeon Yoo
 							<td class="courseProfessor">${course.courseProfessor}</td>
 							<td class="courseTime">${course.courseTime}</td>
 							<td class="courseLocation">${course.courseLocation}</td>
-							<td><button class="courseSelect">수강신청</button></td>
+							<td><button class="courseSelect btn btn-primary">수강신청</button></td>
 						</tr>
 					</c:forEach>
-				</table>
-			</div>
-	
+				</tbody>
+			</table>
+		
 			<div id="psy" style="display: none;">
 				<p>
 					심리학과
@@ -547,7 +550,7 @@ Created By Jinwoo Kim, Yonghyeon Yoo
 	
 			<div>신청한 과목</div>
 	
-			<table id="selectedCourse">
+			<table id="table selectedCourse">
 				<tr>
 					<td>학년</td>
 					<td>종별</td>
