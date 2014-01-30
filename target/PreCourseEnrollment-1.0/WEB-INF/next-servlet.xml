@@ -12,11 +12,11 @@
 
 	<mvc:annotation-driven />
 
-	<mvc:resources location="/images/" mapping="/images/**" />
+	<mvc:resources location="/img/" mapping="/img/**" />
 
-	<mvc:resources location="/stylesheets/" mapping="/stylesheets/**" />
+	<mvc:resources location="/css/" mapping="/css/**" />
 
-	<mvc:resources location="/javascripts/" mapping="/javascripts/**" />
+	<mvc:resources location="/js/" mapping="/js/**" />
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
@@ -37,4 +37,9 @@
 		</property>
 		<property name="ignoreAcceptHeader" value="true" />
 	</bean>
+
+	<bean id="reCaptcha" class="net.tanesha.recaptcha.ReCaptchaImpl">
+		<property name="privateKey" value="6LcTsu0SAAAAAETYICm55vPzqT0VQ0rwzofYTvhY"/>
+	</bean>
+
 </beans>

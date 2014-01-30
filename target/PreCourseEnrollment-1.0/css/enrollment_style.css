@@ -1,0 +1,92 @@
+/**
+ * Created By Jinwoo Kim, Yonghyeon Yoo
+ */
+
+.body
+{
+	width:100%;
+}
+
+.wrap
+{
+	width:960px;
+	margin: 5px auto 0px;
+	font-family:'Malgun Gothic'
+}
+
+.notice
+{
+	margin: auto;
+	border-style:solid;
+	padding: 10px 20px;
+	text-align:justify;	
+	font-size:25px;
+	line-height: 200%;
+}
+
+.inline-block
+{
+	display:inline-block;
+}
+
+
+
+
+.courseGrade
+{
+	width:100px;
+}
+
+.courseType
+{
+	width:100px;	
+}			
+.courseLevel
+{
+	width:100px;
+}
+.courseNumber
+{
+	width:150px;
+}
+.coursePoint
+{
+	width:100px;	
+}
+.courseName
+{
+	width:200px;
+}
+.courseProfessor
+{
+	width:100px;	
+}
+.courseTime
+{
+	width:100px;	
+}
+.courseLocation
+{
+	width:100px;
+}
+
+
+
+
+
+
+
+
+.login_info_list
+{
+	line-height: 160%;
+	height:70px;
+	text-align:center;
+}
+
+.login_info_list_name
+{
+	width:300px;
+}
+
+

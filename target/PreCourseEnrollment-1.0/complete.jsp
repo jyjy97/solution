@@ -1,7 +1,5 @@
 <%--
-Created by Alek
-Date: 1/26/14
-Project: PreCourseEnrollment
+	Created By Jinwoo Kim, Yonghyeon Yoo
 --%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -10,14 +8,24 @@ Project: PreCourseEnrollment
 	<title>예비 수강 신청</title>
 
 	<link rel="stylesheet" type="text/css" href="./stylesheets/complete_style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+
 	<script language="JavaScript">
 		tid = setInterval("change()", 5*1000);
 		function change()
 		{
 			document.location.href="http://solutionyonsei.ac.kr";
 		}
-
 	</script>
+
+	<% session = request.getSession(false);
+		if(session != null) {
+			session.invalidate();
+		}
+	%>
+
 </head>
 
 <body class="body">
@@ -42,5 +50,8 @@ Project: PreCourseEnrollment
 <div class="solution_logo">
 	<img src="./images/solution_logo.png" alt="Solution Logo">
 </div>
+
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="js/bootstrap.min.js"></script>
 </body>
 </html>

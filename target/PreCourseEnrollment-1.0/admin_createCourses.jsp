@@ -1,8 +1,12 @@
+<%--
+	Created By Jinwoo Kim, Yonghyeon Yoo
+--%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-	<title>admin_createGaminginstance</title>
+	<title>admin</title>
 </head>
 	<style type="text/css">
 		table { border-collapse:collapse; }
@@ -10,7 +14,8 @@
 	</style>
 
 <body>
-<a href="/solutionAdminPage/importCSV.do"><button>import csv</button></a>
+<p><a href="/solutionAdminPage/main"><- 메인으로</a></p>
+<p><a href="/solutionAdminPage/importCSV.do"><button>import CSV</button></a> <-- 서버 재시작후에 한번만 눌러주세요. 두번누르면 DB를 초기화 해야 합니다.</p>
 <form id="createGamingInstance" action="/solutionAdminPage/createCourse.do" method="POST">
 	<p>학년<input type="text" name="courseGrade" size="40px"></p>
 	<p>전공<input type="text" name="courseMajor" size="40px"></p>
