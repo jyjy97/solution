@@ -1,5 +1,7 @@
 package org.nhnnext.nxToTo;
 
+import net.tanesha.recaptcha.ReCaptchaImpl;
+import net.tanesha.recaptcha.ReCaptchaResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -20,6 +23,9 @@ import java.util.List;
 @RequestMapping("/")
 public class HelloController {
 	@Autowired
+	ReCaptchaImpl reCaptcha;
+
+	@Autowired
 	private AccountDatabase accountDatabase;
 	@Autowired
 	private CourseDatabase courseDatabase;
@@ -32,17 +38,30 @@ public class HelloController {
 	}
 
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String loginAction(int identification, int grade, String major, String why, HttpSession httpSession) {
-		try {
-			Account targetAccount = accountDatabase.findBystudentNumber(identification);
-			httpSession.setAttribute("identification", targetAccount.getStudentNumber());
-			return "redirect:/loginCheck?status=duplicate";
-		} catch (NullPointerException e) {
-			Account newAccount = new Account(identification, grade, major, why);
-			accountDatabase.save(newAccount);
-			httpSession.setAttribute("identification", newAccount.getStudentNumber());
-			return "redirect:/loginCheck?status=ok";
+	public String loginAction(int identification, int grade, String major, String why, HttpSession httpSession,
+							  String recaptcha_challenge_field, String recaptcha_response_field, String remoteAddress) {
+
+		ReCaptchaImpl reCaptcha = new ReCaptchaImpl();
+		reCaptcha.setPrivateKey("6LcTsu0SAAAAAETYICm55vPzqT0VQ0rwzofYTvhY");
+
+		ReCaptchaResponse reCaptchaResponse = reCaptcha.checkAnswer(remoteAddress, recaptcha_challenge_field, recaptcha_response_field);
+
+		if (reCaptchaResponse.isValid()) {
+			try {
+				Account targetAccount = accountDatabase.findBystudentNumber(identification);
+				httpSession.setAttribute("identification", targetAccount.getStudentNumber());
+				return "redirect:/loginCheck?status=duplicate";
+			} catch (NullPointerException e) {
+				Account newAccount = new Account(identification, grade, major, why);
+				accountDatabase.save(newAccount);
+				httpSession.setAttribute("identification", newAccount.getStudentNumber());
+				return "redirect:/loginCheck?status=ok";
+			}
+		} else {
+			return "redirect:/";
 		}
+
+
 	}
 
 	@RequestMapping(value = "loginCheck")
@@ -151,7 +170,6 @@ public class HelloController {
 		else
 			return "redirect:solutionyonsei.ac.kr";
 	}
-
 
 	@RequestMapping(value = "admin")
 	public String adminPage() {

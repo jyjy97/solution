@@ -5,6 +5,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<%@ page import="net.tanesha.recaptcha.ReCaptcha" %>
+<%@ page import="net.tanesha.recaptcha.ReCaptchaFactory" %>
+
 <html>
 	<head>
 
@@ -14,9 +17,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Bootstrap -->
 		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-			
-
-
 
 		<script>
 			function fill_check(){
@@ -25,6 +25,7 @@
 				var grade = document.getElementById("grade");
 				var major = document.getElementById("major");
 				var why = document.getElementById("why");
+				var reCAPTCHA = document.getElementById("recaptcha_response_field");
 				if (id.value == "" || id.value == null) {
 					alert("학번을 입력해 주세요.");
 					return false;
@@ -40,6 +41,9 @@
 				} else if (id.value.length != 6 && id.value.length != 10) {
 					alert("학번은 숫자 6자리 또는 10자리로 되어있습니다. 다시 확인해 주시기 바랍니다.");
 					return false;
+				} else if (reCAPTCHA.value == "" || reCAPTCHA.value == null) {
+					alert("자동가입방지 문자를 입력해 주시기 바랍니다.")
+					return false;
 				}
 				return true;
 			}
@@ -49,6 +53,33 @@
 					event.returnValue=false;
 				}
 			}
+
+			var strings = [];
+
+//			strings['recaptcha.instructions_visual'] = "<spring:message code='recaptcha.instructions_visual' javaScriptEscape='true'/>";
+			strings['recaptcha.instructions_audio'] = "<spring:message code='recaptcha.instructions_audio' javaScriptEscape='true'/>";
+			strings['recaptcha.play_again'] = "<spring:message code='recaptcha.play_again' javaScriptEscape='true'/>";
+			strings['recaptcha.cant_hear_this'] = "<spring:message code='recaptcha.cant_hear_this' javaScriptEscape='true'/>";
+			strings['recaptcha.visual_challenge'] = "<spring:message code='recaptcha.visual_challenge' javaScriptEscape='true'/>";
+			strings['recaptcha.audio_challenge'] = "<spring:message code='recaptcha.audio_challenge' javaScriptEscape='true'/>";
+			strings['recaptcha.refresh_btn'] = "<spring:message code='recaptcha.refresh_btn' javaScriptEscape='true'/>";
+			strings['recaptcha.help_btn'] = "<spring:message code='recaptcha.help_btn' javaScriptEscape='true'/>";
+			strings['recaptcha.incorrect_try_again'] = "<spring:message code='recaptcha.incorrect_try_again' javaScriptEscape='true'/>";
+
+			var RecaptchaOptions = {
+				custom_translations : {
+//					instructions_visual :  strings['recaptcha.instructions_visual'] ,
+					instructions_audio : strings['recaptcha.instructions_audio'],
+					play_again : strings['recaptcha.play_again'],
+					cant_hear_this : strings['recaptcha.cant_hear_this'],
+					visual_challenge : strings['recaptcha.visual_challenge'],
+					audio_challenge : strings['recaptcha.audio_challenge'],
+					refresh_btn : strings['recaptcha.refresh_btn'],
+					help_btn : strings['recaptcha.help_btn'],
+					incorrect_try_again : strings['recaptcha.incorrect_try_again']
+				},
+				theme : 'clean'
+			};
 
 			window.onload = function() {
 				if (document.getElementById("loginButton") != null) {
@@ -77,6 +108,7 @@
 					<div class="login_info">
 			
 						<form id="loginForm" action="/login" method="POST">
+						<input type="hidden" name="remoteAddress" value="<%=request.getRemoteAddr()%>">
 						<table>
 							<tr class="row_style">	
 								<td class="column_style">주전공(학과)</td>
@@ -112,8 +144,14 @@
 									</select>
 								</td>
 							</tr>
-							
 						</table>
+							<div class="recaptcha">
+							<%
+								ReCaptcha c = ReCaptchaFactory.newReCaptcha("6LcTsu0SAAAAADAHy06hQNewZtK3RD_dUYWRNrIx",
+										"6LcTsu0SAAAAAETYICm55vPzqT0VQ0rwzofYTvhY", false);
+								out.println(c.createRecaptchaHtml(null, null));
+							%>
+							</div>
 							<div class="submit_button_line">
 								<input type="submit" class="submit_button_style" onclick="return fill_check();" value=" 예비 수강신청 하기 ">
 							</div>

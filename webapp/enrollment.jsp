@@ -7,7 +7,7 @@ Created By Jinwoo Kim, Yonghyeon Yoo
 <html>
 	<head>
 		<title>예비수강신청</title>
-		<link rel="stylesheet" type="text/css" href="./stylesheets/enrollment_style.css">
+		<link rel="stylesheet" type="text/css" href="./css/enrollment_style.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Bootstrap -->
 		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">

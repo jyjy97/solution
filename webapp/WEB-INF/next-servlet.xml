@@ -37,4 +37,9 @@
 		</property>
 		<property name="ignoreAcceptHeader" value="true" />
 	</bean>
+
+	<bean id="reCaptcha" class="net.tanesha.recaptcha.ReCaptchaImpl">
+		<property name="privateKey" value="6LcTsu0SAAAAAETYICm55vPzqT0VQ0rwzofYTvhY"/>
+	</bean>
+
 </beans>
