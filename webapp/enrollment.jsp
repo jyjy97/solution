@@ -165,7 +165,7 @@ Created By Jinwoo Kim, Yonghyeon Yoo
 					if (courses[2] != null) {
 						var thirdCourse = courses[2].textContent;
 						var thirdCourseName = coursesName[2].textContent;
-						message += "\n3. " + thirdCourseName + "\t" + thirdCourse + "\n";
+						message += "3. " + thirdCourseName + "\t" + thirdCourse + "\n";
 					} else {
 						var thirdCourse = " ";
 						var thirdCourseName = " ";
@@ -254,7 +254,7 @@ Created By Jinwoo Kim, Yonghyeon Yoo
 			</div>
 			
 			<table id="korean" style="display: none;" class="table table-hover table-condensed courseList">
-				<caption class="text-left">국어국문학과</caption>
+				<caption class="text-left"><strong>국어국문학과<strong></caption>
 				<thead>
 					<tr>
 						<th>학년</th>
@@ -288,23 +288,23 @@ Created By Jinwoo Kim, Yonghyeon Yoo
 				</tbody>
 			</table>
 		
-			<div id="psy" style="display: none;">
-				<p>
-					심리학과
-				</p>
-				<table class="courseList">
+			<table id="psy" style="display: none;" class="table table-hover table-condensed courseList">
+				<caption class="text-left"><strong>심리학과<strong></caption>
+				<thead>
 					<tr>
-						<td>학년</td>
-						<td>종별</td>
-						<td>단위</td>
-						<td>학정번호</td>
-						<td>학점</td>
-						<td>교과목명</td>
-						<td>담당교수</td>
-						<td>강의시간</td>
-						<td>강의실</td>
-						<td></td>
+						<th>학년</th>
+						<th>종별</th>
+						<th>단위</th>
+						<th>학정번호</th>
+						<th>학점</th>
+						<th>교과목명</th>
+						<th>담당교수</th>
+						<th>강의시간</th>
+						<th>강의실</th>
+						<th> </th>
 					</tr>
+				</thead>
+				<tbody>
 					<c:forEach items="${courses_psy}" var="course">
 						<tr>
 							<input type="hidden" id="${course.courseName}" value=0>
@@ -317,32 +317,29 @@ Created By Jinwoo Kim, Yonghyeon Yoo
 							<td class="courseProfessor">${course.courseProfessor}</td>
 							<td class="courseTime">${course.courseTime}</td>
 							<td class="courseLocation">${course.courseLocation}</td>
-							<td>
-							<button class="courseSelect">
-								수강신청
-							</button></td>
+							<td><button class="courseSelect btn btn-primary">수강신청</button></td>
 						</tr>
 					</c:forEach>
-				</table>
-			</div>
+				</tbody>
+			</table>
 	
-			<div id="chulhak" style="display: none;">
-				<p>
-					철학과
-				</p>
-				<table class="courseList">
+			<table id="chulhak" style="display: none;" class="table table-hover table-condensed courseList">
+				<caption class="text-left"><strong>철학과<strong></caption>
+				<thead>
 					<tr>
-						<td>학년</td>
-						<td>종별</td>
-						<td>단위</td>
-						<td>학정번호</td>
-						<td>학점</td>
-						<td>교과목명</td>
-						<td>담당교수</td>
-						<td>강의시간</td>
-						<td>강의실</td>
-						<td></td>
+						<th>학년</th>
+						<th>종별</th>
+						<th>단위</th>
+						<th>학정번호</th>
+						<th>학점</th>
+						<th>교과목명</th>
+						<th>담당교수</th>
+						<th>강의시간</th>
+						<th>강의실</th>
+						<th> </th>
 					</tr>
+				</thead>
+				<tbody>
 					<c:forEach items="${courses_chulhak}" var="course">
 						<tr>
 							<input type="hidden" id="${course.courseName}" value=0>
@@ -355,32 +352,29 @@ Created By Jinwoo Kim, Yonghyeon Yoo
 							<td class="courseProfessor">${course.courseProfessor}</td>
 							<td class="courseTime">${course.courseTime}</td>
 							<td class="courseLocation">${course.courseLocation}</td>
-							<td>
-							<button class="courseSelect">
-								수강신청
-							</button></td>
+							<td><button class="courseSelect btn btn-primary">수강신청</button></td>
 						</tr>
 					</c:forEach>
-				</table>
-			</div>
+				</tbody>
+			</table>
 	
-			<div id="money" style="display: none;">
-				<p>
-					경제학과
-				</p>
-				<table class="courseList">
+			<table id="money" style="display: none;" class="table table-hover table-condensed courseList">
+				<caption class="text-left"><strong>경제학과<strong></caption>
+				<thead>
 					<tr>
-						<td>학년</td>
-						<td>종별</td>
-						<td>단위</td>
-						<td>학정번호</td>
-						<td>학점</td>
-						<td>교과목명</td>
-						<td>담당교수</td>
-						<td>강의시간</td>
-						<td>강의실</td>
-						<td></td>
+						<th>학년</th>
+						<th>종별</th>
+						<th>단위</th>
+						<th>학정번호</th>
+						<th>학점</th>
+						<th>교과목명</th>
+						<th>담당교수</th>
+						<th>강의시간</th>
+						<th>강의실</th>
+						<th> </th>
 					</tr>
+				</thead>
+				<tbody>
 					<c:forEach items="${courses_money}" var="course">
 						<tr>
 							<input type="hidden" id="${course.courseName}" value=0>
@@ -393,32 +387,29 @@ Created By Jinwoo Kim, Yonghyeon Yoo
 							<td class="courseProfessor">${course.courseProfessor}</td>
 							<td class="courseTime">${course.courseTime}</td>
 							<td class="courseLocation">${course.courseLocation}</td>
-							<td>
-							<button class="courseSelect">
-								수강신청
-							</button></td>
+							<td><button class="courseSelect btn btn-primary">수강신청</button></td>
 						</tr>
 					</c:forEach>
-				</table>
-			</div>
+				</tbody>
+			</table>
 	
-			<div id="untong" style="display: none;">
-				<p>
-					응용통계학과
-				</p>
-				<table class="courseList">
+			<table id="untong" style="display: none;" class="table table-hover table-condensed courseList">
+				<caption class="text-left"><strong>응용통계학과<strong></caption>
+				<thead>
 					<tr>
-						<td>학년</td>
-						<td>종별</td>
-						<td>단위</td>
-						<td>학정번호</td>
-						<td>학점</td>
-						<td>교과목명</td>
-						<td>담당교수</td>
-						<td>강의시간</td>
-						<td>강의실</td>
-						<td></td>
+						<th>학년</th>
+						<th>종별</th>
+						<th>단위</th>
+						<th>학정번호</th>
+						<th>학점</th>
+						<th>교과목명</th>
+						<th>담당교수</th>
+						<th>강의시간</th>
+						<th>강의실</th>
+						<th> </th>
 					</tr>
+				</thead>
+				<tbody>
 					<c:forEach items="${courses_untong}" var="course">
 						<tr>
 							<input type="hidden" id="${course.courseName}" value=0>
@@ -431,32 +422,29 @@ Created By Jinwoo Kim, Yonghyeon Yoo
 							<td class="courseProfessor">${course.courseProfessor}</td>
 							<td class="courseTime">${course.courseTime}</td>
 							<td class="courseLocation">${course.courseLocation}</td>
-							<td>
-							<button class="courseSelect">
-								수강신청
-							</button></td>
+							<td><button class="courseSelect btn btn-primary">수강신청</button></td>
 						</tr>
 					</c:forEach>
-				</table>
-			</div>
+				</tbody>
+			</table>
 	
-			<div id="jungchi" style="display: none;">
-				<p>
-					정치외교학과
-				</p>
-				<table class="courseList">
+			<table id="jungchi" style="display: none;" class="table table-hover table-condensed courseList">
+				<caption class="text-left"><strong>정치외교학과<strong></caption>
+				<thead>
 					<tr>
-						<td>학년</td>
-						<td>종별</td>
-						<td>단위</td>
-						<td>학정번호</td>
-						<td>학점</td>
-						<td>교과목명</td>
-						<td>담당교수</td>
-						<td>강의시간</td>
-						<td>강의실</td>
-						<td></td>
+						<th>학년</th>
+						<th>종별</th>
+						<th>단위</th>
+						<th>학정번호</th>
+						<th>학점</th>
+						<th>교과목명</th>
+						<th>담당교수</th>
+						<th>강의시간</th>
+						<th>강의실</th>
+						<th> </th>
 					</tr>
+				</thead>
+				<tbody>
 					<c:forEach items="${courses_jungchi}" var="course">
 						<tr>
 							<input type="hidden" id="${course.courseName}" value=0>
@@ -469,32 +457,29 @@ Created By Jinwoo Kim, Yonghyeon Yoo
 							<td class="courseProfessor">${course.courseProfessor}</td>
 							<td class="courseTime">${course.courseTime}</td>
 							<td class="courseLocation">${course.courseLocation}</td>
-							<td>
-							<button class="courseSelect">
-								수강신청
-							</button></td>
+							<td><button class="courseSelect btn btn-primary">수강신청</button></td>
 						</tr>
 					</c:forEach>
-				</table>
-			</div>
+				</tbody>
+			</table>
 	
-			<div id="social" style="display: none;">
-				<p>
-					사회학과
-				</p>
-				<table class="courseList">
+			<table id="social" style="display: none;" class="table table-hover table-condensed courseList">
+				<caption class="text-left"><strong>사회학과<strong></caption>
+				<thead>
 					<tr>
-						<td>학년</td>
-						<td>종별</td>
-						<td>단위</td>
-						<td>학정번호</td>
-						<td>학점</td>
-						<td>교과목명</td>
-						<td>담당교수</td>
-						<td>강의시간</td>
-						<td>강의실</td>
-						<td></td>
+						<th>학년</th>
+						<th>종별</th>
+						<th>단위</th>
+						<th>학정번호</th>
+						<th>학점</th>
+						<th>교과목명</th>
+						<th>담당교수</th>
+						<th>강의시간</th>
+						<th>강의실</th>
+						<th> </th>
 					</tr>
+				</thead>
+				<tbody>
 					<c:forEach items="${courses_social}" var="course">
 						<tr>
 							<input type="hidden" id="${course.courseName}" value=0>
@@ -507,29 +492,29 @@ Created By Jinwoo Kim, Yonghyeon Yoo
 							<td class="courseProfessor">${course.courseProfessor}</td>
 							<td class="courseTime">${course.courseTime}</td>
 							<td class="courseLocation">${course.courseLocation}</td>
-							<td><button class="courseSelect">수강신청</button></td>
+							<td><button class="courseSelect btn btn-primary">수강신청</button></td>
 						</tr>
 					</c:forEach>
-				</table>
-			</div>
+				</tbody>
+			</table>
 	
-			<div id="press" style="display: none;">
-				<p>
-					언론홍보영상학부
-				</p>
-				<table class="courseList">
+			<table id="press" style="display: none;" class="table table-hover table-condensed courseList">
+				<caption class="text-left"><strong>언론홍보영상학부<strong></caption>
+				<thead>
 					<tr>
-						<td>학년</td>
-						<td>종별</td>
-						<td>단위</td>
-						<td>학정번호</td>
-						<td>학점</td>
-						<td>교과목명</td>
-						<td>담당교수</td>
-						<td>강의시간</td>
-						<td>강의실</td>
-						<td></td>
+						<th>학년</th>
+						<th>종별</th>
+						<th>단위</th>
+						<th>학정번호</th>
+						<th>학점</th>
+						<th>교과목명</th>
+						<th>담당교수</th>
+						<th>강의시간</th>
+						<th>강의실</th>
+						<th> </th>
 					</tr>
+				</thead>
+				<tbody>
 					<c:forEach items="${courses_press}" var="course">
 						<tr>
 							<input type="hidden" id="${course.courseName}" value=0>
@@ -542,15 +527,15 @@ Created By Jinwoo Kim, Yonghyeon Yoo
 							<td class="courseProfessor">${course.courseProfessor}</td>
 							<td class="courseTime">${course.courseTime}</td>
 							<td class="courseLocation">${course.courseLocation}</td>
-							<td><button class="courseSelect">수강신청	</button></td>
+							<td><button class="courseSelect btn btn-primary">수강신청</button></td>
 						</tr>
 					</c:forEach>
-				</table>
-			</div>
+				</tbody>
+			</table>
 	
 			<div>신청한 과목</div>
 	
-			<table id="table selectedCourse">
+			<table id="selectedCourse" class="table">
 				<tr>
 					<td>학년</td>
 					<td>종별</td>
@@ -564,7 +549,7 @@ Created By Jinwoo Kim, Yonghyeon Yoo
 				</tr>
 			</table>
 			
-		<div><button id="submit" onclick="submit()">예비 수강신청 확정</button></div>
+		<div><button id="submit" class="btn" onclick="submit()">예비 수강신청 확정</button></div>
 		</div>
 		
 		<script src="http://code.jquery.com/jquery.js"></script>

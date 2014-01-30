@@ -1,4 +1,4 @@
-﻿<--
+﻿<%--
 	Created By Jinwoo Kim, Yonghyeon Yoo
 --%>
 
@@ -143,7 +143,7 @@
 					</div>
 					
 					<div class="control-group">
-						<div class="recaptcha span6 margin-auto">
+						<div class="recaptcha span6" style="height:120px">
 							<%
 								ReCaptcha c = ReCaptchaFactory.newReCaptcha("6LcTsu0SAAAAADAHy06hQNewZtK3RD_dUYWRNrIx",
 								"6LcTsu0SAAAAAETYICm55vPzqT0VQ0rwzofYTvhY", false);
