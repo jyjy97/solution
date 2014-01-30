@@ -10,6 +10,10 @@
 	<style type="text/css">
 		table { border-collapse:collapse; }
 		tr, td { border:1px solid #000000; }
+
+		.text-center{
+			text-align:center;
+		}		
 	</style>
 	<script>
 		function popWindow() {
@@ -41,16 +45,16 @@
 			<tr>
 				<td>${course.courseName}</td>
 				<td class="courseNumber">${course.courseNumber}</td>
-				<td>${course.numofTotalStudent}</td>
+				<td class="text-center">${course.numofTotalStudent}</td>
 				<td></td>
-				<td>${course.numofSecondGradeStudent}</td>
-				<td>${course.numofThirdGradeStudent}</td>
-				<td>${course.numofFourthGradeStudent}</td>
+				<td class="text-center">${course.numofSecondGradeStudent}</td>
+				<td class="text-center">${course.numofThirdGradeStudent}</td>
+				<td class="text-center">${course.numofFourthGradeStudent}</td>
 				<td></td>
-				<td>${course.numofMainMajorStudent}</td>
-				<td>${course.numofMultiMajorStudent}</td>
-				<td>${course.numofPartMajorStudent}</td>
-				<td>${course.numofOtherStudent}</td>
+				<td class="text-center">${course.numofMainMajorStudent}</td>
+				<td class="text-center">${course.numofMultiMajorStudent}</td>
+				<td class="text-center">${course.numofPartMajorStudent}</td>
+				<td class="text-center">${course.numofOtherStudent}</td>
 				<td><button onclick="popWindow()">수강 신청한 학생 보기</button></td>
 			</tr>
 		</c:forEach>
