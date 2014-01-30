@@ -1,4 +1,4 @@
-﻿<%--
+﻿<--
 	Created By Jinwoo Kim, Yonghyeon Yoo
 --%>
 
@@ -24,8 +24,6 @@
 			function fill_check() {
 
 				var id = document.getElementById("identification");
-				var grade = document.getElementById("grade");
-				var major = document.getElementById("major");
 				var why = document.getElementById("why");
 				var reCAPTCHA = document.getElementById("recaptcha_response_field");
 				if (id.value == "" || id.value == null) {
@@ -94,8 +92,7 @@
 	</head>
 
 	<body>
-		<div class="container">
-			
+		<div class="container">			
 			<div class="hero-unit">
 				<h1 class="text-center">연세대학교 예비수강신청</h1>
 				<br>
