@@ -52,6 +52,10 @@
 					location.href='/';
 				}
 			}
+			else if (getParameter("status")=="auto") {
+				alert("자동가입방지 문자를 잘못 입력하셨습니다. 다시 입력해 주세요.")
+				location.href='/';
+			}
 			else {
 				location.href='/';
 			}
