@@ -58,7 +58,7 @@ public class HelloController {
 				return "redirect:/loginCheck?status=ok";
 			}
 		} else {
-			return "redirect:/";
+			return "redirect:/loginCheck?status=auto";
 		}
 
 
@@ -163,12 +163,12 @@ public class HelloController {
 
 	@RequestMapping(value = "adminCheck.do")
 	public String adminCheck(String pass, HttpSession httpSession) {
-		if (pass.equals("제51대총학생회솔루션")) {
+		if (pass.equals("제51대총학생회솔루션이한솔27")) {
 			httpSession.setAttribute("admin", "true");
 			return "redirect:/solutionAdminPage/main";
 		}
 		else
-			return "redirect:solutionyonsei.ac.kr";
+			return "redirect:/solutionyonsei.ac.kr";
 	}
 
 	@RequestMapping(value = "admin")
