@@ -14,10 +14,10 @@
 
 	<title>2014학년도 1학기 연세대학교 예비수강신청</title>
 
-	<link rel="stylesheet" type="text/css" href="css/hello_style.css">
+	<link rel="stylesheet" type="text/css" href="/css/hello_style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximun-scale=1.0, user-scalable=yes"/>
 	<!-- Bootstrap -->
-	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
 
 	<script>
 		function fill_check() {
