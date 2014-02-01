@@ -50,11 +50,14 @@ public class HelloController {
 			try {
 				Account targetAccount = accountDatabase.findBystudentNumber(identification);
 				httpSession.setAttribute("identification", targetAccount.getStudentNumber());
+				httpSession.setAttribute("status", "duplicate");
 				return "redirect:/loginCheck?status=duplicate";
 			} catch (NullPointerException e) {
-				Account newAccount = new Account(identification, grade, major, why);
-				accountDatabase.save(newAccount);
-				httpSession.setAttribute("identification", newAccount.getStudentNumber());
+				httpSession.setAttribute("identification", identification);
+				httpSession.setAttribute("grade", grade);
+				httpSession.setAttribute("major", major);
+				httpSession.setAttribute("why", why);
+				httpSession.setAttribute("status", "ok");
 				return "redirect:/loginCheck?status=ok";
 			}
 		} else {
@@ -137,6 +140,10 @@ public class HelloController {
 					for (Survey survey : surveys) {
 						surveyDatabase.delete(survey);
 					}
+
+					targetAccount = accountDatabase.findBystudentNumber(Integer.parseInt(String.valueOf(httpSession.getAttribute("identification"))));
+				} else if (httpSession.getAttribute("status")=="ok") {
+					targetAccount = accountDatabase.save(new Account(Integer.parseInt(String.valueOf(httpSession.getAttribute("identification"))), Integer.parseInt(String.valueOf(httpSession.getAttribute("grade"))), String.valueOf(httpSession.getAttribute("major")), String.valueOf(httpSession.getAttribute("why"))));
 				}
 
 				if (!firstCourse.equals(" ")) {
