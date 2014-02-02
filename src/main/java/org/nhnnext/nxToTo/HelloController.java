@@ -86,6 +86,7 @@ public class HelloController {
 			ArrayList<Course> courses_jungchi = new ArrayList<Course>();
 			ArrayList<Course> courses_social = new ArrayList<Course>();
 			ArrayList<Course> courses_press = new ArrayList<Course>();
+			ArrayList<Course> courses_business = new ArrayList<Course>();
 
 			while (iterator.hasNext()) {
 				Course course = iterator.next();
@@ -105,6 +106,8 @@ public class HelloController {
 					courses_social.add(course);
 				else if (course.getCourseMajor().equals("언론홍보영상학부"))
 					courses_press.add(course);
+				else if (course.getCourseMajor().equals("경영학부"))
+					courses_business.add(course);
 			}
 
 			model.addAttribute("courses_korean", courses_korean);
@@ -115,6 +118,7 @@ public class HelloController {
 			model.addAttribute("courses_jungchi", courses_jungchi);
 			model.addAttribute("courses_social", courses_social);
 			model.addAttribute("courses_press", courses_press);
+			model.addAttribute("courses_business", courses_business);
 
 			return "enrollment";
 		}

@@ -66,6 +66,7 @@ function changeMajorView() {
 		document.getElementById("jungchi").style.display = "none";
 		document.getElementById("social").style.display = "none";
 		document.getElementById("press").style.display = "none";
+		document.getElementById("business").style.display = "none";
 	}
 	if (major.value == "심리학과") {
 		document.getElementById("korean").style.display = "none";
@@ -76,6 +77,8 @@ function changeMajorView() {
 		document.getElementById("jungchi").style.display = "none";
 		document.getElementById("social").style.display = "none";
 		document.getElementById("press").style.display = "none";
+
+		document.getElementById("business").style.display = "none";
 	}
 	if (major.value == "철학과") {
 		document.getElementById("korean").style.display = "none";
@@ -86,6 +89,8 @@ function changeMajorView() {
 		document.getElementById("jungchi").style.display = "none";
 		document.getElementById("social").style.display = "none";
 		document.getElementById("press").style.display = "none";
+
+		document.getElementById("business").style.display = "none";
 	}
 	if (major.value == "경제학과") {
 		document.getElementById("korean").style.display = "none";
@@ -96,6 +101,20 @@ function changeMajorView() {
 		document.getElementById("jungchi").style.display = "none";
 		document.getElementById("social").style.display = "none";
 		document.getElementById("press").style.display = "none";
+
+		document.getElementById("business").style.display = "none";
+	}
+	if (major.value == "경영학과") {
+		document.getElementById("korean").style.display = "none";
+		document.getElementById("psy").style.display = "none";
+		document.getElementById("chulhak").style.display = "none";
+		document.getElementById("money").style.display = "none";
+		document.getElementById("untong").style.display = "none";
+		document.getElementById("jungchi").style.display = "none";
+		document.getElementById("social").style.display = "none";
+		document.getElementById("press").style.display = "none";
+
+		document.getElementById("business").style.display = "block";
 	}
 	if (major.value == "응용통계학과") {
 		document.getElementById("korean").style.display = "none";
@@ -106,6 +125,8 @@ function changeMajorView() {
 		document.getElementById("jungchi").style.display = "none";
 		document.getElementById("social").style.display = "none";
 		document.getElementById("press").style.display = "none";
+
+		document.getElementById("business").style.display = "none";
 	}
 	if (major.value == "정치외교학과") {
 		document.getElementById("korean").style.display = "none";
@@ -116,6 +137,8 @@ function changeMajorView() {
 		document.getElementById("jungchi").style.display = "block";
 		document.getElementById("social").style.display = "none";
 		document.getElementById("press").style.display = "none";
+
+		document.getElementById("business").style.display = "none";
 	}
 	if (major.value == "사회학과") {
 		document.getElementById("korean").style.display = "none";
@@ -126,6 +149,8 @@ function changeMajorView() {
 		document.getElementById("jungchi").style.display = "none";
 		document.getElementById("social").style.display = "block";
 		document.getElementById("press").style.display = "none";
+
+		document.getElementById("business").style.display = "none";
 	}
 	if (major.value == "언론홍보영상학부") {
 		document.getElementById("korean").style.display = "none";
@@ -136,6 +161,8 @@ function changeMajorView() {
 		document.getElementById("jungchi").style.display = "none";
 		document.getElementById("social").style.display = "none";
 		document.getElementById("press").style.display = "block";
+
+		document.getElementById("business").style.display = "none";
 	}
 }
 
@@ -246,6 +273,7 @@ window.onload = function() {
 			<option value="철학과">철학과</option>
 			<option value="">-- 상경 대학 --</option>
 			<option value="경제학과">경제학과</option>
+			<option value="경영학과">경영학과</option>
 			<option value="응용통계학과">응용통계학과</option>
 			<option value="">-- 사회과학대학 --</option>
 			<option value="정치외교학과">정치외교학과</option>
@@ -274,7 +302,7 @@ window.onload = function() {
 	<tbody>
 	<c:forEach items="${courses_korean}" var="course">
 		<tr>
-			<input type="hidden" id="${course.courseName}" value=0>
+			<input type="hidden" class="${course.courseName}" value=0>
 			<td class="courseGrade">${course.courseGrade}</td>
 			<td class="courseType">${course.courseType}</td>
 			<td class="courseLevel">${course.courseLevel}</td>
@@ -309,7 +337,7 @@ window.onload = function() {
 	<tbody>
 	<c:forEach items="${courses_psy}" var="course">
 		<tr>
-			<input type="hidden" id="${course.courseName}" value=0>
+			<input type="hidden" class="${course.courseName}" value=0>
 			<td class="courseGrade">${course.courseGrade}</td>
 			<td class="courseType">${course.courseType}</td>
 			<td class="courseLevel">${course.courseLevel}</td>
@@ -344,7 +372,7 @@ window.onload = function() {
 	<tbody>
 	<c:forEach items="${courses_chulhak}" var="course">
 		<tr>
-			<input type="hidden" id="${course.courseName}" value=0>
+			<input type="hidden" class="${course.courseName}" value=0>
 			<td class="courseGrade">${course.courseGrade}</td>
 			<td class="courseType">${course.courseType}</td>
 			<td class="courseLevel">${course.courseLevel}</td>
@@ -379,7 +407,42 @@ window.onload = function() {
 	<tbody>
 	<c:forEach items="${courses_money}" var="course">
 		<tr>
-			<input type="hidden" id="${course.courseName}" value=0>
+			<input type="hidden" class="${course.courseName}" value=0>
+			<td class="courseGrade">${course.courseGrade}</td>
+			<td class="courseType">${course.courseType}</td>
+			<td class="courseLevel">${course.courseLevel}</td>
+			<td class="courseNumber">${course.courseNumber}</td>
+			<td class="coursePoint">${course.coursePoint}</td>
+			<td class="courseName">${course.courseName}</td>
+			<td class="courseProfessor">${course.courseProfessor}</td>
+			<td class="courseTime">${course.courseTime}</td>
+			<td class="courseLocation">${course.courseLocation}</td>
+			<td><button class="courseSelect btn btn-primary">수강신청</button></td>
+		</tr>
+	</c:forEach>
+	</tbody>
+</table>
+
+<table id="business" style="display: none;" class="table table-hover table-condensed courseList">
+	<caption class="text-center"><strong><h4>경영학과</h4><strong></caption>
+	<thead>
+	<tr>
+		<th>학년</th>
+		<th>종별</th>
+		<th>단위</th>
+		<th>학정번호</th>
+		<th>학점</th>
+		<th>교과목명</th>
+		<th>담당교수</th>
+		<th>강의시간</th>
+		<th>강의실</th>
+		<th> </th>
+	</tr>
+	</thead>
+	<tbody>
+	<c:forEach items="${courses_business}" var="course">
+		<tr>
+			<input type="hidden" class="${course.courseName}" value=0>
 			<td class="courseGrade">${course.courseGrade}</td>
 			<td class="courseType">${course.courseType}</td>
 			<td class="courseLevel">${course.courseLevel}</td>
@@ -414,7 +477,7 @@ window.onload = function() {
 	<tbody>
 	<c:forEach items="${courses_untong}" var="course">
 		<tr>
-			<input type="hidden" id="${course.courseName}" value=0>
+			<input type="hidden" class="${course.courseName}" value=0>
 			<td class="courseGrade">${course.courseGrade}</td>
 			<td class="courseType">${course.courseType}</td>
 			<td class="courseLevel">${course.courseLevel}</td>
@@ -449,7 +512,7 @@ window.onload = function() {
 	<tbody>
 	<c:forEach items="${courses_jungchi}" var="course">
 		<tr>
-			<input type="hidden" id="${course.courseName}" value=0>
+			<input type="hidden" class="${course.courseName}" value=0>
 			<td class="courseGrade">${course.courseGrade}</td>
 			<td class="courseType">${course.courseType}</td>
 			<td class="courseLevel">${course.courseLevel}</td>
@@ -484,7 +547,7 @@ window.onload = function() {
 	<tbody>
 	<c:forEach items="${courses_social}" var="course">
 		<tr>
-			<input type="hidden" id="${course.courseName}" value=0>
+			<input type="hidden" class="${course.courseName}" value=0>
 			<td class="courseGrade">${course.courseGrade}</td>
 			<td class="courseType">${course.courseType}</td>
 			<td class="courseLevel">${course.courseLevel}</td>
@@ -519,7 +582,7 @@ window.onload = function() {
 	<tbody>
 	<c:forEach items="${courses_press}" var="course">
 		<tr>
-			<input type="hidden" id="${course.courseName}" value=0>
+			<input type="hidden" class="${course.courseName}" value=0>
 			<td class="courseGrade">${course.courseGrade}</td>
 			<td class="courseType">${course.courseType}</td>
 			<td class="courseLevel">${course.courseLevel}</td>
@@ -557,5 +620,8 @@ window.onload = function() {
 
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script>
+
+</script>
 </body>
 </html>

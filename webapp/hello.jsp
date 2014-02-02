@@ -98,7 +98,7 @@
 		<p>수요의 허수를 줄이기 위해 <strong>9학점</strong>까지만 예비수강신청을 할 수 있으며, 더불어 학우 여러분들께서도 반드시 수강하고 싶은 전공에만 수강신청을 부탁 드립니다.</p>
 	</div>
 
-	<form class="form-horizontal row" id="loginForm" method="POST">
+	<form class="form-horizontal row" id="loginForm" action="/login" method="POST">
 
 		<fieldset class="span6 offset3">
 
@@ -153,9 +153,9 @@
 						</div>
 					</div>
 					<div class="control-group">
-						<div class="span6"><p class="text-error">2월 2일 00시부터 신청가능합니다</p></div>
+						<div class="span6"><p class="text-error">2월 5일 00시에 종료됩니다.</p></div>
 						<div class="span6">
-							<input type="button" class="btn btn-large btn-block btn-apply disabled" value="예비 수강신청하기"> <!--type="submit" onclick="return fill_check();"-->
+							<input type="submit" class="btn btn-large btn-block btn-apply" onclick="return fill_check();" value="예비 수강신청하기">
 						</div>
 					</div>
 		</fieldset>
