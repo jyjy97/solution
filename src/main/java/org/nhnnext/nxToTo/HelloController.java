@@ -92,9 +92,9 @@ public class HelloController {
 				Course course = iterator.next();
 				if (course.getCourseMajor().equals("국어국문학과"))
 					courses_korean.add(course);
-				else if (course.getCourseMajor().equals("심리학과"))
+				else if (course.getCourseMajor().equals("심리학"))
 					courses_psy.add(course);
-				else if (course.getCourseMajor().equals("철학과"))
+				else if (course.getCourseMajor().equals("철학"))
 					courses_chulhak.add(course);
 				else if (course.getCourseMajor().equals("경제학과"))
 					courses_money.add(course);
